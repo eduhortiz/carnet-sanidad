@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carnet de Sanidad</title>
+<meta name="theme-color" content="#1f6feb">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Carnet Sanidad">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script>if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
+<script src="vendor/react.production.min.js"></script>
+<script src="vendor/react-dom.production.min.js"></script>
+<script src="vendor/dc-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/manrope-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/manrope-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/manrope-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/manrope-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/manrope-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/manrope-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/manrope-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/manrope-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/manrope-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/manrope-greek.woff2") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/manrope-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/manrope-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/manrope-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+html,body{margin:0;padding:0;background:#f3f4f6;font-family:Manrope,system-ui,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#1f6feb;text-decoration:none}
+a:hover{color:#1a56b8}
+input,select,button,textarea{font-family:inherit;font-size:16px}
+@keyframes popIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media print{.no-print{display:none!important}body{background:#fff}}
+</style>
+</helmet>
+<div style="display:flex;min-height:100vh;color:#14161a;flex-direction:{{ shellDir }}">
+
+  <sc-if value="{{ sesionActiva }}" hint-placeholder-val="{{ false }}">
+  <aside class="no-print" style="display:{{ sidebarDisplay }};width:230px;flex:none;background:#0f1319;color:#fff;flex-direction:column;padding:22px 14px;gap:26px;position:sticky;top:0;height:100vh">
+    <div sc-camel-on-click="{{ tocarLogo }}" style="display:flex;align-items:center;gap:11px;padding:0 6px;cursor:pointer">
+      <div style="width:34px;height:34px;flex:none;border-radius:10px;background:#1f6feb;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px">CS</div>
+      <div style="line-height:1.25;min-width:0">
+        <div style="font-weight:700;font-size:14px">Carnet Sanidad</div>
+        <div style="font-size:11px;color:#8b93a1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ tienda }}</div>
+      </div>
+      <span style="display:{{ adminChip }};flex:none;font-size:9px;font-weight:800;letter-spacing:.06em;color:#1f6feb;background:#132338;border:1px solid #1e3a5f;border-radius:5px;padding:2px 5px">ADM</span>
+    </div>
+
+    <div style="margin-top:-14px;background:#171c24;border:1px solid #232a35;border-radius:11px;padding:11px 12px;display:flex;align-items:center;gap:10px">
+      <div style="width:30px;height:30px;flex:none;border-radius:50%;background:#1e3a5f;color:#9ec5ff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800">{{ usuarioIni }}</div>
+      <div style="min-width:0;line-height:1.3">
+        <div style="font-size:9.5px;letter-spacing:.07em;font-weight:800;color:#6b7280">{{ usuarioRol }}</div>
+        <div style="font-size:12.5px;font-weight:700;color:#e8ebf0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ usuarioNombre }}</div>
+      </div>
+    </div>
+
+    <nav style="display:flex;flex-direction:column;gap:4px">
+      <div style="font-size:10px;letter-spacing:.09em;color:#6b7280;font-weight:700;padding:0 8px 6px">OPERACIÓN</div>
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+        <button sc-camel-on-click="{{ item.go }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;padding:9px 10px;border-radius:9px;border:0;cursor:pointer;font-size:13px;font-weight:600;background:{{ item.bg }};color:{{ item.fg }}">
+          <span>{{ item.label }}</span>
+          <span style="font-size:11px;font-weight:700;color:{{ item.badgeColor }}">{{ item.badge }}</span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <div style="margin-top:auto;background:#171c24;border:1px solid #232a35;border-radius:12px;padding:12px">
+      <div style="font-size:11px;color:#8b93a1;font-weight:600;margin-bottom:6px">{{ syncTitulo }}</div>
+      <div style="font-size:12px;color:#d7dbe2;line-height:1.5">{{ syncTexto }}</div>
+      <div style="display:flex;align-items:center;gap:7px;margin-top:9px">
+        <span style="width:7px;height:7px;border-radius:50%;background:{{ syncColor }}"></span>
+        <span style="font-size:11px;color:{{ syncColor }};font-weight:700">{{ syncEstado }}</span>
+      </div>
+    </div>
+  </aside>
+  </sc-if>
+
+  <div class="no-print" style="display:{{ bienvenidaDisplay }};position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;background:#0f1319;color:#fff;border:1px solid #2a323d;border-radius:999px;padding:12px 22px;font-size:14px;font-weight:800;box-shadow:0 12px 30px rgba(16,24,40,.28);animation:popIn .25s ease;max-width:90vw;text-align:center">{{ bienvenida }}</div>
+
+  <main style="flex:1;min-width:0;display:flex;flex-direction:column;padding-bottom:{{ mainPadBottom }}">
+    <sc-if value="{{ sesionActiva }}" hint-placeholder-val="{{ false }}">
+    <header style="background:#fff;border-bottom:1px solid #e5e7eb;padding:{{ headerPad }};display:flex;align-items:center;justify-content:space-between;gap:14px;position:sticky;top:0;z-index:5">
+      <div sc-camel-on-click="{{ tocarLogo }}" style="min-width:0;cursor:pointer">
+        <div style="display:{{ marcaDisplay }};align-items:center;gap:8px;margin-bottom:7px">
+          <div style="width:24px;height:24px;flex:none;border-radius:7px;background:#1f6feb;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px">CS</div>
+          <div style="min-width:0;line-height:1.15">
+            <div style="font-size:12.5px;font-weight:800;letter-spacing:-.01em">Carnet Sanidad</div>
+            <div style="font-size:10.5px;color:#8b8f98;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ tienda }}</div>
+          </div>
+          <span style="display:{{ adminChip }};flex:none;font-size:8.5px;font-weight:800;letter-spacing:.06em;color:#1f6feb;background:#eef4ff;border:1px solid #cfe0ff;border-radius:5px;padding:2px 5px">ADM</span>
+        </div>
+        <h1 style="margin:0;font-size:{{ h1Size }};font-weight:800;letter-spacing:-.01em">{{ viewTitle }}</h1>
+        <div style="font-size:12px;color:#6b7280;margin-top:3px;display:{{ subDisplay }}">{{ viewSub }}</div>
+      </div>
+      <div class="no-print" style="display:flex;align-items:center;gap:10px;flex:none">
+        <div style="font-size:12px;color:#6b7280;display:{{ subDisplay }}">{{ hoyLargo }}</div>
+        <button sc-camel-on-click="{{ sincronizar }}" title="Sincronizar" style="background:#f3f4f6;border:0;border-radius:9px;width:38px;height:38px;font-size:15px;cursor:pointer;color:#374151">↻</button>
+        <button sc-camel-on-click="{{ goRegistro }}" style="background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:10px 15px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap" style-hover="background:#1a56b8">{{ ctaRegistro }}</button>
+        <button sc-camel-on-click="{{ salirApp }}" title="Salir de la aplicación" aria-label="Salir de la aplicación" style="background:#fff;border:1px solid #e5e7eb;border-radius:9px;width:38px;height:38px;font-size:15px;cursor:pointer;color:#dc2626;display:flex;align-items:center;justify-content:center" style-hover="background:#fef2f2;border-color:#fecaca"><svg sc-camel-view-box="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3"></path><path d="M15 17l5-5-5-5"></path><path d="M20 12h-9"></path></svg></button>
+      </div>
+    </header>
+
+    <div style="padding:{{ bodyPad }};flex:1">
+
+      <sc-if value="{{ isPanel }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:{{ gap }};animation:popIn .25s ease">
+
+          <sc-if value="{{ noConectada }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:14px;padding:15px 16px;display:flex;gap:13px;align-items:flex-start">
+              <div style="width:26px;height:26px;flex:none;border-radius:8px;background:#f59e0b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">!</div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:13.5px;font-weight:800;color:#78350f">Los datos aún no se comparten entre celular y PC</div>
+                <div style="font-size:12.5px;color:#92400e;margin-top:3px;line-height:1.5;text-wrap:pretty">Esta app está en modo local: lo que registras en un equipo no se ve en el otro. Conecta tu hoja «REGISTRO CARNET DE SANIDAD» una sola vez y pega la misma URL en los dos equipos.</div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:11px">
+                  <input value="{{ urlInput }}" sc-camel-on-input="{{ onUrl }}" placeholder="Pega aquí el código de conexión" style="flex:1;min-width:190px;padding:11px;border:1px solid #fcd34d;border-radius:9px;font-size:13px;background:#fff;outline:none">
+                  <button sc-camel-on-click="{{ borrarUrl }}" title="Borrar el código" aria-label="Borrar el código" style="display:{{ borrarUrlDisplay }};background:#fff;border:1px solid #d9dde3;border-radius:9px;width:46px;min-height:44px;font-size:16px;font-weight:800;color:#dc2626;cursor:pointer;align-items:center;justify-content:center">✕</button>
+                  <button sc-camel-on-click="{{ conectar }}" style="background:#b45309;color:#fff;border:0;border-radius:9px;padding:11px 16px;font-size:12.5px;font-weight:800;cursor:pointer;min-height:44px">Conectar</button>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="display:grid;grid-template-columns:{{ gridKpi }};gap:{{ gap }}">
+            <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+              <div sc-camel-on-click="{{ k.go }}" style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:15px 16px;cursor:pointer;box-shadow:0 1px 2px rgba(16,24,40,.04)" style-hover="border-color:#c9ced6">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="width:9px;height:9px;border-radius:50%;flex:none;background:{{ k.color }}"></span>
+                  <span style="font-size:11px;font-weight:800;color:#4b5563;letter-spacing:.02em">{{ k.label }}</span>
+                </div>
+                <div style="font-size:32px;font-weight:800;letter-spacing:-.03em;margin-top:6px;color:{{ k.color }}">{{ k.value }}</div>
+                <div style="font-size:11.5px;color:#8b8f98;margin-top:2px">{{ k.hint }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:grid;grid-template-columns:{{ gridMain }};gap:{{ gap }};align-items:start">
+            <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden">
+              <div style="padding:14px 16px;border-bottom:1px solid #eef0f3;display:flex;align-items:center;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14px;font-weight:800">Requieren acción</div>
+                  <div style="font-size:11.5px;color:#6b7280;margin-top:2px">Vencidos y por vencer en 30 días</div>
+                </div>
+                <button sc-camel-on-click="{{ goLista }}" style="background:#f3f4f6;border:0;border-radius:8px;padding:7px 11px;font-size:12px;font-weight:700;color:#374151;cursor:pointer;flex:none">Ver todos</button>
+              </div>
+              <sc-if value="{{ sinRegistros }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:34px 20px;text-align:center">
+                  <div style="font-size:13px;font-weight:700;color:#4b5563">Aún no hay carnets registrados</div>
+                  <div style="font-size:12px;color:#8b8f98;margin-top:5px;text-wrap:pretty">Registra el primer carnet o conecta tu hoja de Google Sheets.</div>
+                  <button sc-camel-on-click="{{ goRegistro }}" style="margin-top:14px;background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:10px 16px;font-size:12.5px;font-weight:700;cursor:pointer">Registrar el primero</button>
+                </div>
+              </sc-if>
+              <sc-if value="{{ sinUrgentes }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:30px 20px;text-align:center;font-size:13px;font-weight:700;color:#16a34a">Todos los carnets están vigentes</div>
+              </sc-if>
+              <sc-for list="{{ urgentes }}" as="r" hint-placeholder-count="6">
+                <div style="display:flex;align-items:center;gap:11px;padding:11px 16px;border-bottom:1px solid #f2f3f5">
+                  <div style="width:34px;height:34px;flex:none;border-radius:9px;background:{{ r.avatarBg }};color:{{ r.color }};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800">{{ r.iniciales }}</div>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.nombre }}</div>
+                    <div style="font-size:11.5px;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.area }} · {{ r.vencimiento }}</div>
+                  </div>
+                  <div style="text-align:right;flex:none">
+                    <div style="font-size:12px;font-weight:800;color:{{ r.color }}">{{ r.estadoTexto }}</div>
+                  </div>
+                  <button sc-camel-on-click="{{ r.verFotos }}" title="{{ r.fotoTitulo }}" style="display:flex;flex:none;background:#fff;border:1px solid #d5d9e0;border-radius:8px;padding:7px 9px;font-size:13px;cursor:pointer;min-height:34px;align-items:center;opacity:{{ r.fotoOpacidad }}" style-hover="border-color:#1f6feb">▣</button>
+                  <button sc-camel-on-click="{{ r.renovar }}" style="flex:none;background:#fff;border:1px solid #d5d9e0;border-radius:8px;padding:7px 10px;font-size:11.5px;font-weight:700;color:#1f6feb;cursor:pointer;min-height:34px" style-hover="border-color:#1f6feb">Renovar</button>
+                </div>
+              </sc-for>
+            </section>
+
+            <div style="display:grid;grid-template-columns:{{ gridLateral }};gap:{{ gap }};align-items:start">
+              <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px">
+                <div style="font-size:14px;font-weight:800">Manipuladores de alimentos</div>
+                <div style="font-size:11.5px;color:#6b7280;margin-top:2px;margin-bottom:14px">Personal de mayor riesgo sanitario</div>
+                <div style="display:flex;align-items:baseline;gap:8px">
+                  <span style="font-size:30px;font-weight:800;letter-spacing:-.03em">{{ manipOk }}</span>
+                  <span style="font-size:13px;color:#6b7280;font-weight:600">de {{ manipTotal }} vigentes</span>
+                </div>
+                <div style="height:8px;border-radius:99px;background:#eef0f3;margin-top:12px;overflow:hidden">
+                  <div style="height:100%;background:#16a34a;width:{{ manipPct }}"></div>
+                </div>
+                <div style="font-size:11.5px;color:#8b8f98;margin-top:8px;text-wrap:pretty">{{ manipAlerta }}</div>
+              </section>
+
+              <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px">
+                <div style="font-size:14px;font-weight:800;margin-bottom:12px">Estado por área</div>
+                <sc-if value="{{ sinRegistros }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:12px;color:#8b8f98">Sin datos todavía.</div>
+                </sc-if>
+                <sc-for list="{{ porArea }}" as="a" hint-placeholder-count="6">
+                  <div style="margin-bottom:11px">
+                    <div style="display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:600;margin-bottom:5px">
+                      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ a.area }}</span>
+                      <span style="color:#6b7280;flex:none">{{ a.resumen }}</span>
+                    </div>
+                    <div style="display:flex;height:7px;border-radius:99px;overflow:hidden;background:#eef0f3">
+                      <div style="background:#16a34a;width:{{ a.pctOk }}"></div>
+                      <div style="background:#f59e0b;width:{{ a.pctWarn }}"></div>
+                      <div style="background:#dc2626;width:{{ a.pctBad }}"></div>
+                    </div>
+                  </div>
+                </sc-for>
+              </section>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isLista }}" hint-placeholder-val="{{ false }}">
+        <div style="animation:popIn .25s ease">
+          <div class="no-print" style="display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-bottom:14px">
+            <input value="{{ q }}" sc-camel-on-input="{{ onSearch }}" placeholder="Buscar por nombre o DNI…" style="flex:1;min-width:180px;padding:11px 13px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;background:#fff;outline:none">
+            <sc-raw-select value="{{ fArea }}" sc-camel-on-change="{{ onArea }}" style="padding:11px 12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;background:#fff;max-width:100%">
+              <sc-for list="{{ areasOpts }}" as="o" hint-placeholder-count="8">
+                <option value="{{ o }}">{{ o }}</option>
+              </sc-for>
+            </sc-raw-select>
+            <div style="display:flex;background:#eceef1;border-radius:9px;padding:3px;gap:2px;overflow-x:auto">
+              <sc-for list="{{ estadoTabs }}" as="t" hint-placeholder-count="4">
+                <button sc-camel-on-click="{{ t.go }}" style="border:0;border-radius:7px;padding:8px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;background:{{ t.bg }};color:{{ t.fg }}">{{ t.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+
+          <sc-if value="{{ verTabla }}" hint-placeholder-val="{{ true }}">
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden">
+              <div style="display:grid;grid-template-columns:2.8fr 1fr .5fr .8fr .8fr .9fr 168px;gap:10px;padding:10px 16px;background:#fafbfc;border-bottom:1px solid #eef0f3;font-size:10.5px;font-weight:800;color:#6b7280;letter-spacing:.06em">
+                <div>COLABORADOR</div><div>ÁREA</div><div>MANIP.</div><div>EMISIÓN</div><div>VENCE</div><div>ESTADO</div><div></div>
+              </div>
+              <sc-for list="{{ filtradas }}" as="r" hint-placeholder-count="12">
+                <div style="display:grid;grid-template-columns:2.8fr 1fr .5fr .8fr .8fr .9fr 168px;gap:10px;padding:9px 16px;border-bottom:1px solid #f4f5f7;align-items:center;font-size:12.5px" style-hover="background:#fafbfc">
+                  <div style="display:flex;align-items:center;gap:9px;min-width:0">
+                    <div style="width:28px;height:28px;flex:none;border-radius:8px;background:{{ r.avatarBg }};color:{{ r.color }};display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:800">{{ r.iniciales }}</div>
+                    <div style="min-width:0">
+                      <div style="font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.nombre }}</div>
+                      <div style="font-size:11px;color:#8b8f98;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.dni }} · {{ r.celular }}</div>
+                      <div style="display:{{ r.elimPorDisplay }};font-size:11px;color:#b91c1c;font-weight:700;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.elimPorTexto }}</div>
+                    </div>
+                  </div>
+                  <div style="color:#4b5563;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.area }}</div>
+                  <div>{{ r.manipulador }}</div>
+                  <div style="color:#6b7280;white-space:nowrap">{{ r.emision }}</div>
+                  <div style="font-weight:600;white-space:nowrap">{{ r.vencimiento }}</div>
+                  <div><span style="display:inline-block;padding:3px 9px;border-radius:99px;font-size:11px;font-weight:800;background:{{ r.avatarBg }};color:{{ r.color }}">{{ r.estadoTexto }}</span></div>
+                  <div class="no-print" style="display:flex;justify-content:flex-end;gap:5px">
+                    <button sc-camel-on-click="{{ r.verFotos }}" title="{{ r.fotoTitulo }}" style="display:flex;background:#eef4ff;border:1px solid #cfe0ff;border-radius:7px;padding:6px 8px;font-size:12px;color:#1f6feb;cursor:pointer;align-items:center;opacity:{{ r.fotoOpacidad }}">▣</button>
+                    <a href="{{ r.waLink }}" target="_blank" title="WhatsApp: enviar mensaje de alerta" style="background:#fff;border:1px solid #d5d9e0;border-radius:7px;padding:6px 6px;font-size:10.5px;font-weight:700;color:#16a34a">WA</a>
+                    <button sc-camel-on-click="{{ r.compartir }}" title="WhatsApp: mensaje + foto del carnet" style="display:{{ r.waFotoDisplay }};background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:6px 6px;font-size:10.5px;font-weight:700;color:#16a34a;cursor:pointer;align-items:center">WA▣</button>
+                    <button sc-camel-on-click="{{ r.renovar }}" title="Registrar renovación" style="display:{{ r.renovarDisplay }};background:#eef4ff;border:1px solid #cfe0ff;border-radius:7px;padding:6px 7px;font-size:12px;color:#1f6feb;cursor:pointer;align-items:center">↻</button>
+                    <button sc-camel-on-click="{{ r.habilitar }}" title="Habilitar nuevamente" style="display:{{ r.habDisplay }};background:#f0fdf4;border:1px solid #bbf7d0;border-radius:7px;padding:6px 9px;font-size:11px;font-weight:800;color:#16a34a;cursor:pointer;align-items:center">Habilitar</button>
+                    <button sc-camel-on-click="{{ r.purgar }}" title="Eliminar definitivamente (hoja y fotos de Drive)" style="display:{{ r.purgarDisplay }};background:#fff;border:1px solid #fecaca;border-radius:7px;padding:6px 7px;font-size:12px;color:#dc2626;cursor:pointer;align-items:center" style-hover="background:#fef2f2">🗑</button>
+                    <button sc-camel-on-click="{{ r.eliminar }}" title="Eliminar" style="display:{{ r.elimDisplay }};background:#fff;border:1px solid #e6e8ec;border-radius:7px;padding:6px 7px;font-size:11px;font-weight:700;color:#9ca3af;cursor:pointer;align-items:center" style-hover="color:#dc2626;border-color:#fca5a5">✕</button>
+                  </div>
+                </div>
+              </sc-for>
+              <div style="padding:11px 16px;font-size:12px;color:#6b7280;background:#fafbfc">{{ conteoFiltrado }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ verFichas }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;grid-template-columns:{{ gridFichas }};gap:9px;align-items:start">
+              <sc-for list="{{ filtradas }}" as="r" hint-placeholder-count="8">
+                <div style="background:#fff;border:1px solid #e5e7eb;border-left:4px solid {{ r.color }};border-radius:12px;padding:13px 14px">
+                  <div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start">
+                    <div style="min-width:0">
+                      <div style="font-size:14px;font-weight:800;line-height:1.3">{{ r.nombre }}</div>
+                      <div style="font-size:12px;color:#6b7280;margin-top:3px">{{ r.area }}{{ r.manipTexto }}</div>
+                      <div style="display:{{ r.elimPorDisplay }};font-size:11.5px;color:#b91c1c;font-weight:700;margin-top:4px;line-height:1.4">{{ r.elimPorTexto }}</div>
+                    </div>
+                    <span style="flex:none;padding:4px 9px;border-radius:99px;font-size:11px;font-weight:800;background:{{ r.avatarBg }};color:{{ r.color }}">{{ r.estadoTexto }}</span>
+                  </div>
+                  <div style="display:flex;gap:16px;margin-top:11px;font-size:12px;color:#6b7280">
+                    <div><div style="font-size:10px;font-weight:800;letter-spacing:.05em">DNI</div>{{ r.dni }}</div>
+                    <div><div style="font-size:10px;font-weight:800;letter-spacing:.05em">VENCE</div><span style="color:#14161a;font-weight:600">{{ r.vencimiento }}</span></div>
+                    <div><div style="font-size:10px;font-weight:800;letter-spacing:.05em">CELULAR</div>{{ r.celular }}</div>
+                  </div>
+                  <div class="no-print" style="display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin-top:12px">
+                    <button sc-camel-on-click="{{ r.verFotos }}" title="{{ r.fotoTitulo }}" style="display:flex;background:#fff;border:1px solid #d5d9e0;border-radius:9px;padding:11px 14px;font-size:15px;cursor:pointer;min-height:44px;align-items:center;justify-content:center;opacity:{{ r.fotoOpacidad }}">▣</button>
+                    <button sc-camel-on-click="{{ r.renovar }}" style="display:{{ r.renovarDisplay }};flex:1 1 auto;min-width:88px;white-space:nowrap;background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:11px;font-size:13px;font-weight:700;cursor:pointer;min-height:44px;align-items:center;justify-content:center">Renovar</button>
+                    <button sc-camel-on-click="{{ r.habilitar }}" style="display:{{ r.habDisplay }};flex:1 1 auto;min-width:88px;white-space:nowrap;background:#f0fdf4;border:1px solid #bbf7d0;color:#16a34a;border-radius:9px;padding:11px;font-size:13px;font-weight:800;cursor:pointer;min-height:44px;align-items:center;justify-content:center">Habilitar</button>
+                    <a href="{{ r.waLink }}" target="_blank" style="flex:1 1 auto;min-width:86px;white-space:nowrap;background:#fff;border:1px solid #d5d9e0;border-radius:9px;padding:11px 8px;font-size:12.5px;font-weight:700;text-align:center;color:#16a34a;min-height:44px">Mensaje</a>
+                    <button sc-camel-on-click="{{ r.compartir }}" style="display:{{ r.waFotoDisplay }};flex:1 1 auto;min-width:104px;white-space:nowrap;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:9px;padding:11px 8px;font-size:12.5px;font-weight:700;color:#16a34a;cursor:pointer;min-height:44px;align-items:center;justify-content:center">{{ r.compartirTexto }}</button>
+                    <button sc-camel-on-click="{{ r.purgar }}" title="Eliminar definitivamente (hoja y fotos de Drive)" style="display:{{ r.purgarDisplay }};background:#fff;border:1px solid #fecaca;border-radius:9px;padding:11px 13px;font-size:15px;color:#dc2626;cursor:pointer;min-height:44px;align-items:center;justify-content:center" style-hover="background:#fef2f2">🗑</button>
+                    <button sc-camel-on-click="{{ r.eliminar }}" style="display:{{ r.elimDisplay }};background:#fff;border:1px solid #e6e8ec;border-radius:9px;padding:11px 13px;font-size:13px;font-weight:700;color:#9ca3af;cursor:pointer;min-height:44px;align-items:center">✕</button>
+                  </div>
+                </div>
+              </sc-for>
+              <div style="grid-column:1/-1;font-size:12px;color:#6b7280;padding:4px 2px">{{ conteoFiltrado }}</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ sinRegistros }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:40px 20px;text-align:center;margin-top:9px">
+              <div style="font-size:13px;font-weight:700;color:#4b5563">Registro vacío</div>
+              <div style="font-size:12px;color:#8b8f98;margin-top:5px">Los colaboradores que registres aparecerán aquí.</div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <div style="display:{{ scriptViejoDisplay }};background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:14px;margin-bottom:14px;font-size:12.5px;color:#b91c1c;line-height:1.55;text-wrap:pretty"><b>{{ scriptViejoTitulo }}</b> {{ scriptViejoTexto }}</div>
+
+      <sc-if value="{{ isRegistro }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:960px;animation:popIn .25s ease">
+          <div style="display:flex;gap:8px;margin-bottom:14px">
+            <sc-for list="{{ modoTabs }}" as="t" hint-placeholder-count="2">
+              <button sc-camel-on-click="{{ t.go }}" style="flex:1;max-width:200px;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:10px;padding:11px 15px;font-size:13px;font-weight:700;cursor:pointer;min-height:44px">{{ t.label }}</button>
+            </sc-for>
+          </div>
+
+          <div style="display:grid;grid-template-columns:{{ gridForm }};gap:{{ gap }};align-items:start">
+            <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+              <sc-if value="{{ esRenovacion }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-bottom:16px">
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">BUSCAR COLABORADOR</label>
+                  <input value="{{ buscaCol }}" sc-camel-on-input="{{ onBuscaCol }}" placeholder="Escribe el nombre o el DNI…" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;outline:none">
+                  <sc-if value="{{ hayCol }}" hint-placeholder-val="{{ false }}">
+                    <div style="border:1px solid #d9dde3;border-radius:10px;margin-top:7px;max-height:262px;overflow-y:auto;background:#fff">
+                      <sc-for list="{{ colSug }}" as="c" hint-placeholder-count="4">
+                        <button sc-camel-on-click="{{ c.pick }}" style="display:flex;width:100%;box-sizing:border-box;text-align:left;gap:10px;align-items:center;background:#fff;border:0;border-bottom:1px solid #f2f3f5;padding:11px 12px;cursor:pointer;min-height:48px" style-hover="background:#f6f9ff">
+                          <span style="width:27px;height:27px;flex:none;border-radius:8px;background:{{ c.avatarBg }};color:{{ c.color }};display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800">{{ c.iniciales }}</span>
+                          <span style="flex:1;min-width:0">
+                            <span style="display:block;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.nombre }}</span>
+                            <span style="display:block;font-size:11px;color:#6b7280;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.sub }}</span>
+                          </span>
+                          <span style="flex:none;font-size:11px;font-weight:800;color:{{ c.color }}">{{ c.estadoTexto }}</span>
+                        </button>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                  <div style="display:{{ sinColDisplay }};font-size:12px;color:#8b8f98;margin-top:7px;text-wrap:pretty">Sin coincidencias. Revísalo en Colaboradores o regístralo como nuevo ingreso.</div>
+                  <div style="display:{{ colElegidoDisplay }};font-size:12px;font-weight:700;color:#16a34a;margin-top:7px">{{ colElegido }}</div>
+                </div>
+              </sc-if>
+
+              <div style="display:grid;grid-template-columns:{{ gridCampos }};gap:13px">
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">DNI</label>
+                  <input value="{{ form.dni }}" sc-camel-on-input="{{ onField.dni }}" inputmode="numeric" placeholder="8 dígitos" style="width:100%;padding:12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;outline:none">
+                </div>
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">NOMBRE DEL COLABORADOR</label>
+                  <input value="{{ form.nombre }}" sc-camel-on-input="{{ onField.nombre }}" placeholder="Apellidos y nombres" style="width:100%;padding:12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;outline:none">
+                </div>
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">CELULAR (WHATSAPP)</label>
+                  <input value="{{ form.celular }}" sc-camel-on-input="{{ onField.celular }}" inputmode="tel" placeholder="9XX XXX XXX" style="width:100%;padding:12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;outline:none">
+                </div>
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">ÁREA</label>
+                  <sc-raw-select value="{{ form.area }}" sc-camel-on-change="{{ onField.area }}" style="width:100%;padding:12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;background:#fff">
+                    <sc-for list="{{ areas }}" as="a" hint-placeholder-count="13">
+                      <option value="{{ a }}">{{ a }}</option>
+                    </sc-for>
+                  </sc-raw-select>
+                </div>
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">MANIPULADOR DE ALIMENTOS</label>
+                  <div style="display:flex;gap:8px">
+                    <sc-for list="{{ manipTabs }}" as="t" hint-placeholder-count="2">
+                      <button sc-camel-on-click="{{ t.go }}" style="flex:1;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:9px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;min-height:46px">{{ t.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">FECHA DE EMISIÓN CARNET</label>
+                  <input type="date" value="{{ form.emision }}" sc-camel-on-input="{{ onField.emision }}" style="width:100%;padding:11px 12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;outline:none">
+                </div>
+                <div>
+                  <label style="display:block;font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:6px">FECHA DE VENCIMIENTO CARNET</label>
+                  <input type="date" value="{{ form.vencimiento }}" sc-camel-on-input="{{ onField.vencimiento }}" style="width:100%;padding:11px 12px;border:1px solid #d9dde3;border-radius:9px;font-size:14px;outline:none;background:{{ vencBg }};font-weight:600">
+                  <div style="font-size:11px;color:{{ vencHintColor }};margin-top:5px;font-weight:600">{{ vigenciaHint }}</div>
+                </div>
+              </div>
+            </section>
+
+            <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+<div style="font-size:13.5px;font-weight:800;margin-bottom:4px">Foto del carnet</div>
+              <div style="font-size:11.5px;color:#6b7280;margin-bottom:14px">Frente y reverso, con la cámara del celular</div>
+
+              <sc-for list="{{ fotos }}" as="f" hint-placeholder-count="2">
+                <div style="margin-bottom:14px">
+                  <div style="font-size:11px;font-weight:800;color:#4b5563;letter-spacing:.05em;margin-bottom:6px">{{ f.etiqueta }}</div>
+                  <div style="border:2px dashed #d2d7de;border-radius:12px;aspect-ratio:1.6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:#fafbfc;overflow:hidden">
+                    <sc-if value="{{ f.vacia }}" hint-placeholder-val="{{ true }}">
+                      <div style="width:34px;height:34px;border-radius:50%;background:#e8ebef;display:flex;align-items:center;justify-content:center;font-size:15px">▣</div>
+                      <div style="font-size:11.5px;color:#8b8f98;text-align:center;padding:0 14px">{{ f.placeholder }}</div>
+                    </sc-if>
+                    {{ f.img }}
+                  </div>
+                  <div style="display:flex;gap:8px;margin-top:8px">
+                    <label style="flex:1;display:flex;align-items:center;justify-content:center;background:#101318;color:#fff;border-radius:9px;padding:11px 8px;font-size:13px;font-weight:700;text-align:center;cursor:pointer;min-height:44px;white-space:nowrap">
+                      Tomar foto
+                      <input type="file" accept="image/*" capture="environment" sc-camel-on-change="{{ f.onChange }}" style="display:none">
+                    </label>
+                    <label style="flex:1;display:flex;align-items:center;justify-content:center;background:#fff;color:#101318;border:1px solid #d9dde3;border-radius:9px;padding:11px 8px;font-size:13px;font-weight:700;text-align:center;cursor:pointer;min-height:44px;white-space:nowrap">
+                      Cargar foto
+                      <input type="file" accept="image/*" sc-camel-on-change="{{ f.onChange }}" style="display:none">
+                    </label>
+                    <button sc-camel-on-click="{{ f.borrar }}" style="display:{{ f.borrarDisplay }};background:#fff;border:1px solid #e6e8ec;border-radius:9px;padding:11px 13px;font-size:13px;font-weight:700;color:#9ca3af;cursor:pointer;min-height:44px">✕</button>
+                  </div>
+                </div>
+              </sc-for>
+
+              <div style="margin-top:6px;padding-top:14px;border-top:1px solid #eef0f3">
+                <div style="font-size:11.5px;font-weight:800;color:#4b5563;margin-bottom:8px">AL GUARDAR</div>
+                <sc-for list="{{ pasosGuardado }}" as="p" hint-placeholder-count="3">
+                  <div style="display:flex;gap:8px;font-size:12px;color:#4b5563;margin-bottom:7px;line-height:1.45">
+                    <span style="color:#1f6feb;font-weight:800">→</span><span>{{ p }}</span>
+                  </div>
+                </sc-for>
+                <div style="display:{{ rutaDisplay }};margin-top:9px;background:#f7f8fa;border:1px solid #e9ebef;border-radius:9px;padding:10px 11px">
+                  <div style="font-size:10px;font-weight:800;letter-spacing:.05em;color:#8b93a1;margin-bottom:4px">RUTA DE GUARDADO · SOLO ADMIN</div>
+                  <div style="font-size:11.5px;font-weight:700;color:#374151;line-height:1.5;text-wrap:pretty">{{ rutaHoja }}</div>
+                  <a href="https://docs.google.com/spreadsheets/d/1xc5VD25PG_gG0QuxQXyarZO1I02AgBwcIKOD7Rg7pxs/edit?gid=0#gid=0" target="_blank" rel="noopener" style="display:block;font-size:10.5px;color:#1f6feb;margin-top:4px;word-break:break-all;line-height:1.45;font-weight:600;text-decoration:none" style-hover="text-decoration:underline">https://docs.google.com/spreadsheets/d/1xc5VD25PG_gG0QuxQXyarZO1I02AgBwcIKOD7Rg7pxs/edit?gid=0#gid=0</a>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px 18px;margin-top:{{ gap }};display:flex;flex-wrap:wrap;gap:10px;align-items:center;position:sticky;bottom:{{ guardarBottom }};box-shadow:0 -2px 14px rgba(16,24,40,.06)">
+            <button sc-camel-on-click="{{ guardar }}" style="flex:{{ guardarFlex }};background:#1f6feb;color:#fff;border:0;border-radius:10px;padding:14px 22px;font-size:14.5px;font-weight:800;cursor:pointer;min-height:50px" style-hover="background:#1a56b8">{{ textoGuardar }}</button>
+            <button sc-camel-on-click="{{ limpiar }}" style="background:#fff;border:1px solid #d9dde3;border-radius:10px;padding:14px 18px;font-size:13px;font-weight:700;cursor:pointer;min-height:50px">Limpiar</button>
+            <span style="font-size:12.5px;font-weight:700;color:{{ msgColor }}">{{ mensajeGuardado }}</span>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isReporte }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:1000px;animation:popIn .25s ease">
+          <div class="no-print" style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:14px">
+            <button sc-camel-on-click="{{ imprimir }}" style="background:#1f6feb;color:#fff;border:0;border-radius:10px;padding:12px 17px;font-size:13px;font-weight:800;cursor:pointer;min-height:46px">Imprimir / PDF</button>
+            <button sc-camel-on-click="{{ descargarExcel }}" style="background:#fff;border:1px solid #d9dde3;border-radius:10px;padding:12px 17px;font-size:13px;font-weight:700;cursor:pointer;min-height:46px">Descargar Excel</button>
+          </div>
+
+          <div class="no-print" style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px">
+            <sc-for list="{{ reporteTabs }}" as="t" hint-placeholder-count="5">
+              <button sc-camel-on-click="{{ t.go }}" style="border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.fg }};border-radius:9px;padding:10px 14px;font-size:12px;font-weight:800;cursor:pointer;min-height:44px">{{ t.label }}</button>
+            </sc-for>
+          </div>
+
+          <div style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:{{ reportePad }}">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;border-bottom:2px solid #101318;padding-bottom:14px;margin-bottom:16px;flex-wrap:wrap">
+              <div>
+                <div style="font-size:17px;font-weight:800;letter-spacing:-.01em">Reporte de carnets de sanidad</div>
+                <div style="font-size:12px;color:#6b7280;margin-top:3px">{{ tienda }} · emitido {{ hoyLargo }}</div>
+                <div style="font-size:11.5px;font-weight:800;color:#101318;margin-top:4px">{{ reporteFiltroTexto }}</div>
+              </div>
+              <div style="text-align:right;font-size:12px;color:#6b7280">
+                <div><strong style="color:#14161a">{{ total }}</strong> colaboradores</div>
+                <div>{{ resumenReporte }}</div>
+              </div>
+            </div>
+
+            <sc-if value="{{ esEscritorio }}" hint-placeholder-val="{{ true }}">
+              <div style="display:grid;grid-template-columns:1.5fr 1.1fr .6fr .8fr .8fr .9fr;gap:8px;font-size:10px;font-weight:800;color:#6b7280;letter-spacing:.05em;padding-bottom:8px;border-bottom:1px solid #e5e7eb">
+                <div>COLABORADOR</div><div>ÁREA</div><div>MANIP.</div><div>EMISIÓN</div><div>VENCE</div><div>ESTADO</div>
+              </div>
+              <sc-for list="{{ reporteRows }}" as="r" hint-placeholder-count="14">
+                <div style="display:grid;grid-template-columns:1.5fr 1.1fr .6fr .8fr .8fr .9fr;gap:8px;font-size:11.5px;padding:7px 0;border-bottom:1px solid #f2f3f5;align-items:center">
+                  <div style="font-weight:600">{{ r.nombre }}</div>
+                  <div style="color:#4b5563">{{ r.area }}</div>
+                  <div>{{ r.manipulador }}</div>
+                  <div style="color:#6b7280">{{ r.emision }}</div>
+                  <div>{{ r.vencimiento }}</div>
+                  <div style="font-weight:800;color:{{ r.color }}">{{ r.estadoTexto }}</div>
+                </div>
+              </sc-for>
+            </sc-if>
+
+            <sc-if value="{{ esMovil }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800;color:#6b7280;letter-spacing:.05em;padding-bottom:8px;border-bottom:1px solid #e5e7eb">
+                <div>COLABORADOR</div><div>VENCE / ESTADO</div>
+              </div>
+              <sc-for list="{{ reporteRows }}" as="r" hint-placeholder-count="12">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f2f3f5">
+                  <div style="min-width:0;flex:1">
+                    <div style="font-size:12.5px;font-weight:700;line-height:1.3">{{ r.nombre }}</div>
+                    <div style="font-size:11px;color:#6b7280;margin-top:2px">{{ r.area }}{{ r.manipTexto }}</div>
+                  </div>
+                  <div style="flex:none;text-align:right">
+                    <div style="font-size:12px;font-weight:700">{{ r.vencimiento }}</div>
+                    <div style="font-size:11px;font-weight:800;margin-top:2px;color:{{ r.color }}">{{ r.estadoTexto }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isAccesos }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:880px;display:flex;flex-direction:column;gap:{{ gap }};animation:popIn .25s ease">
+
+          <section style="background:#0f1319;border-radius:14px;padding:18px;color:#fff">
+            <div style="display:flex;align-items:center;gap:9px">
+              <span style="font-size:9px;font-weight:800;letter-spacing:.06em;color:#8ab4ff;background:#132338;border:1px solid #1e3a5f;border-radius:5px;padding:3px 6px">ADM</span>
+              <div style="font-size:14px;font-weight:800">Dar acceso a una persona</div>
+            </div>
+            <div style="font-size:12.5px;color:#9aa3b0;margin-top:5px;margin-bottom:14px;line-height:1.55;text-wrap:pretty">Cada persona entra con su correo y una contraseña de 6 números. La lista vive en la pestaña «Usuarios» de tu hoja de Google: puedes agregarlos aquí o escribirlos directamente en la hoja, y la app valida contra ella cada vez que alguien ingresa.</div>
+            <div style="display:grid;grid-template-columns:{{ gridCampos }};gap:9px">
+              <div>
+                <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">NOMBRE DE LA PERSONA</label>
+                <input value="{{ nuevoNombre }}" sc-camel-on-input="{{ onNuevoNombre }}" placeholder="Ej. Ana Ramírez — RRHH" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #2a323d;border-radius:9px;font-size:14px;background:#171c24;color:#fff;outline:none">
+              </div>
+              <div>
+                <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">CORREO</label>
+                <input value="{{ nuevoCorreo }}" sc-camel-on-input="{{ onNuevoCorreo }}" type="email" placeholder="persona@gmail.com" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #2a323d;border-radius:9px;font-size:14px;background:#171c24;color:#fff;outline:none">
+              </div>
+              <div>
+                <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">CONTRASEÑA (6 NÚMEROS · SE GENERA SOLA SI LA DEJAS VACÍA)</label>
+                <input value="{{ nuevaClave }}" sc-camel-on-input="{{ onNuevaClave }}" inputmode="numeric" placeholder="Ej. 482910" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #2a323d;border-radius:9px;font-size:14px;background:#171c24;color:#fff;outline:none">
+              </div>
+              <div>
+                <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">CELULAR (OPCIONAL, PARA ENVIAR POR WHATSAPP)</label>
+                <input value="{{ nuevoCel }}" sc-camel-on-input="{{ onNuevoCel }}" inputmode="numeric" placeholder="987654321" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #2a323d;border-radius:9px;font-size:14px;background:#171c24;color:#fff;outline:none">
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">ENLACE DE LA APP (PARA COMPARTIR APARTE)</label>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <input value="{{ appUrlInput }}" sc-camel-on-input="{{ onAppUrl }}" placeholder="https://drive.google.com/… o donde la descarguen" style="flex:1;min-width:200px;box-sizing:border-box;padding:12px;border:1px solid #2a323d;border-radius:9px;font-size:13px;background:#171c24;color:#fff;outline:none">
+                <button sc-camel-on-click="{{ guardarAppUrl }}" style="background:#171c24;border:1px solid #2a323d;color:#fff;border-radius:9px;padding:12px 16px;font-size:12.5px;font-weight:800;cursor:pointer;min-height:46px">Guardar enlace</button>
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+              <button sc-camel-on-click="{{ crearAcceso }}" style="background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:13px 18px;font-size:13px;font-weight:800;cursor:pointer;min-height:48px">Agregar usuario</button>
+              <button sc-camel-on-click="{{ previsualizarPuerta }}" style="background:transparent;border:1px solid #2a323d;color:#9aa3b0;border-radius:9px;padding:13px 16px;font-size:12.5px;font-weight:700;cursor:pointer;min-height:48px">Ver pantalla de bloqueo</button>
+            </div>
+            <div style="font-size:12.5px;font-weight:700;color:{{ accMsgColor }};margin-top:10px;min-height:16px">{{ accMsg }}</div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px">
+              <div style="font-size:14px;font-weight:800">Usuarios autorizados</div>
+              <div style="font-size:11.5px;font-weight:800;color:#6b7280">{{ accResumen }}</div>
+            </div>
+
+            <sc-if value="{{ hayIntrusos }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:11px;padding:14px;margin-bottom:12px;font-size:12.5px;color:#991b1b;line-height:1.55;text-wrap:pretty">
+                <div style="font-weight:800;margin-bottom:4px">⚠ Uso del mismo código en otro equipo</div>
+                {{ avisoIntrusos }}
+              </div>
+            </sc-if>
+
+            <div style="display:{{ accDiagDisplay }};font-size:11.5px;color:#6b7280;font-weight:700;margin-bottom:9px;line-height:1.5;text-wrap:pretty">{{ accDiag }}. Si aquí dice 0 y ya agregaste usuarios, tu hoja tiene el Apps Script antiguo: ve a «Sheets y alertas», toca «Copiar código», pégalo completo en Extensiones › Apps Script (reemplazando todo), guarda y publica una versión nueva.</div>
+
+            <div style="display:{{ sinHojaDisplay }};background:#fef2f2;border:1px solid #fecaca;border-radius:11px;padding:13px;font-size:12.5px;color:#b91c1c;line-height:1.55;margin-bottom:10px;text-wrap:pretty">Este equipo no tiene la hoja conectada: los usuarios que agregues aquí <b>no se guardarán</b>. Pega el Web App en «Sheets y alertas» primero.</div>
+
+            <sc-if value="{{ accesosVacios }}" hint-placeholder-val="{{ true }}">
+              <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:11px;padding:14px;font-size:12.5px;color:#92400e;line-height:1.55;text-wrap:pretty">Aún no hay usuarios: nadie más puede entrar a la app (solo tú con la clave de administrador). Agrega una persona con su correo y contraseña.</div>
+            </sc-if>
+
+            <sc-for list="{{ accesosList }}" as="a" hint-placeholder-count="2">
+              <div style="border:1px solid #e9ebef;border-radius:12px;padding:13px;margin-bottom:9px;display:flex;flex-wrap:wrap;gap:11px;align-items:center">
+                <div style="flex:1;min-width:150px">
+                  <div style="font-size:13.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ a.nombre }}</div>
+                  <div style="font-size:11.5px;color:#6b7280;margin-top:2px">{{ a.meta }}</div>
+                  <div style="display:{{ a.alertaDisplay }};font-size:11.5px;font-weight:800;color:#dc2626;margin-top:4px">{{ a.alertaTexto }}</div>
+                </div>
+                <div style="font-family:ui-monospace,Menlo,monospace;font-size:19px;font-weight:800;letter-spacing:.14em;color:#101318;flex:none">{{ a.codigo }}</div>
+                <span style="flex:none;font-size:10.5px;font-weight:800;padding:5px 9px;border-radius:999px;color:{{ a.estadoColor }};background:{{ a.estadoBg }}">{{ a.estadoTexto }}</span>
+                <div style="display:flex;gap:7px;flex:none">
+                  <button sc-camel-on-click="{{ a.copiar }}" title="Copiar datos de acceso" style="background:#f3f4f6;border:0;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:700;color:#374151;cursor:pointer;min-height:42px">Copiar</button>
+                  <a href="{{ a.waLink }}" target="_blank" title="Enviar por WhatsApp" style="background:#16a34a;color:#fff;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:800;display:flex;align-items:center;min-height:42px">WA</a>
+                  <button sc-camel-on-click="{{ a.reintentar }}" style="display:{{ a.pendDisplay }};background:#fef3c7;border:1px solid #fde68a;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:800;color:#92400e;cursor:pointer;min-height:42px;align-items:center">Reintentar envío</button>
+                  <button sc-camel-on-click="{{ a.liberar }}" title="Generar una contraseña nueva" style="display:{{ a.liberarDisplay }};background:#fff;border:1px solid #d9dde3;border-radius:9px;padding:10px 13px;font-size:12px;font-weight:800;color:#4b5563;cursor:pointer;min-height:42px;align-items:center">Nueva clave</button>
+                  <button sc-camel-on-click="{{ a.alternar }}" style="background:#fff;border:1px solid {{ a.altBorde }};border-radius:9px;padding:10px 13px;font-size:12px;font-weight:800;color:{{ a.altColor }};cursor:pointer;min-height:42px">{{ a.altTexto }}</button>
+                  <button sc-camel-on-click="{{ a.eliminar }}" title="Eliminar de la lista de accesos" style="background:#fff;border:1px solid #fecaca;border-radius:9px;padding:10px 12px;font-size:12px;font-weight:800;color:#dc2626;cursor:pointer" style-hover="background:#fef2f2">🗑</button>
+                </div>
+              </div>
+            </sc-for>
+
+            <div style="font-size:11.5px;color:#8b8f98;margin-top:6px;line-height:1.6;text-wrap:pretty">La lista completa está en la pestaña «Usuarios» de tu hoja de Google (NOMBRE · CORREO · CLAVE · ESTADO). Puedes editarla desde ahí y el cambio se aplica al instante en todos los equipos: escribe BLOQUEADO en ESTADO para quitarle el acceso a alguien.</div>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isConfig }}" hint-placeholder-val="{{ false }}">
+        <div style="max-width:880px;display:flex;flex-direction:column;gap:{{ gap }};animation:popIn .25s ease">
+
+          <section style="background:#0f1319;border-radius:14px;padding:18px;color:#fff">
+            <div style="display:flex;align-items:center;gap:9px">
+              <span style="font-size:9px;font-weight:800;letter-spacing:.06em;color:#8ab4ff;background:#132338;border:1px solid #1e3a5f;border-radius:5px;padding:3px 6px">ADM</span>
+              <div style="font-size:14px;font-weight:800">Solo administrador</div>
+            </div>
+            <div style="font-size:12.5px;color:#9aa3b0;margin-top:5px;margin-bottom:14px;text-wrap:pretty">Esta pantalla no existe para quien recibe la app: se desbloquea con tu clave y queda oculta en los demás equipos.</div>
+            <label style="display:block;font-size:11px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">NOMBRE DE LA TIENDA</label>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <input value="{{ tiendaInput }}" sc-camel-on-input="{{ onTienda }}" placeholder="Tienda Central" style="flex:1;min-width:200px;padding:12px;border:1px solid #2a323d;border-radius:9px;font-size:14px;background:#171c24;color:#fff;outline:none">
+              <button sc-camel-on-click="{{ guardarTienda }}" style="background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:12px 18px;font-size:13px;font-weight:800;cursor:pointer;min-height:46px">Guardar nombre</button>
+            </div>
+            <div style="font-size:11.5px;color:#6b7280;margin-top:9px">Se muestra en el menú y en la cabecera del reporte impreso. Al guardar se envía a la hoja: laptop y celular verán el mismo nombre al sincronizar.</div>
+            <button sc-camel-on-click="{{ salirAdmin }}" style="margin-top:16px;background:transparent;border:1px solid #2a323d;color:#9aa3b0;border-radius:9px;padding:11px 16px;font-size:12.5px;font-weight:700;cursor:pointer;min-height:44px">Bloquear modo administrador en este equipo</button>
+          </section>
+
+          <section style="background:#fff;border:2px solid {{ syncBorde }};border-radius:14px;padding:18px">
+            <div style="display:flex;align-items:center;gap:9px">
+              <span style="width:9px;height:9px;border-radius:50%;background:{{ syncColor }}"></span>
+              <div style="font-size:14px;font-weight:800">Conexión con tu hoja «REGISTRO CARNET DE SANIDAD»</div>
+            </div>
+            <div style="font-size:12.5px;color:#6b7280;margin-top:4px;margin-bottom:14px;text-wrap:pretty">Pega aquí la URL del Web App que generas en el paso 3. Al conectar, laptop y celular leen y escriben la misma hoja.</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <input value="{{ urlInput }}" sc-camel-on-input="{{ onUrl }}" placeholder="https://script.google.com/macros/s/…/exec" style="flex:1;min-width:220px;padding:12px;border:1px solid #d9dde3;border-radius:9px;font-size:13px;outline:none">
+              <button sc-camel-on-click="{{ borrarUrl }}" title="Borrar el código" aria-label="Borrar el código" style="display:{{ borrarUrlDisplay }};background:#fff;border:1px solid #d9dde3;border-radius:9px;width:46px;min-height:44px;font-size:16px;font-weight:800;color:#dc2626;cursor:pointer;align-items:center;justify-content:center">✕</button>
+              <button sc-camel-on-click="{{ conectar }}" style="background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:12px 18px;font-size:13px;font-weight:800;cursor:pointer;min-height:46px">Conectar</button>
+              <button sc-camel-on-click="{{ sincronizar }}" style="background:#fff;border:1px solid #d9dde3;border-radius:9px;padding:12px 16px;font-size:13px;font-weight:700;cursor:pointer;min-height:46px">Sincronizar ahora</button>
+            </div>
+            <div style="font-size:12.5px;font-weight:700;color:{{ syncColor }};margin-top:10px">{{ syncDetalle }}</div>
+            <button sc-camel-on-click="{{ copiarUrl }}" style="margin-top:12px;background:#f3f4f6;border:0;border-radius:9px;padding:11px 15px;font-size:12.5px;font-weight:700;color:#374151;cursor:pointer;min-height:44px">{{ textoUrl }}</button>
+            <div style="font-size:11.5px;color:#8b8f98;margin-top:7px;text-wrap:pretty">Envía ese código a quien comparta la app: lo pega en el aviso amarillo del panel y verá los mismos datos, sin acceso a esta pantalla.</div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+            <div style="font-size:14px;font-weight:800">Cómo conectarla (una sola vez, 5 minutos)</div>
+            <div style="font-size:12.5px;color:#6b7280;margin-top:3px;margin-bottom:12px">Hazlo desde la laptop, con la hoja abierta.</div>
+            <sc-for list="{{ pasosSetup }}" as="p" hint-placeholder-count="5">
+              <div style="display:flex;gap:11px;padding:9px 0;border-bottom:1px solid #f2f3f5">
+                <div style="width:22px;height:22px;flex:none;border-radius:6px;background:#eef4ff;color:#1f6feb;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center">{{ p.n }}</div>
+                <div>
+                  <div style="font-size:13px;font-weight:700">{{ p.titulo }}</div>
+                  <div style="font-size:12px;color:#6b7280;margin-top:2px;line-height:1.5;text-wrap:pretty">{{ p.detalle }}</div>
+                </div>
+              </div>
+            </sc-for>
+            <div ref="{{ codigoRef }}" style="background:#0f1319;border-radius:11px;padding:14px;color:#c9d1d9;font-size:11px;font-family:ui-monospace,Menlo,monospace;overflow-x:auto;line-height:1.6;margin-top:14px;white-space:pre">{{ appsScript }}</div>
+            <button sc-camel-on-click="{{ copiarScript }}" style="margin-top:11px;background:#101318;color:#fff;border:0;border-radius:9px;padding:12px 16px;font-size:13px;font-weight:700;cursor:pointer;min-height:46px">{{ textoScript }}</button>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+            <div style="font-size:14px;font-weight:800">Columnas de la hoja</div>
+            <div style="font-size:12.5px;color:#6b7280;margin-top:3px;margin-bottom:12px">El script las crea solo la primera vez. ESTADO y DÍAS se calculan con fórmula.</div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px">
+              <sc-for list="{{ columnas }}" as="c" hint-placeholder-count="11">
+                <div style="background:#f6f7f9;border:1px solid #e9ebef;border-radius:8px;padding:9px 10px;font-size:11.5px;font-weight:700;color:#4b5563">{{ c }}</div>
+              </sc-for>
+            </div>
+            <div ref="{{ codigoRef }}" style="background:#0f1319;border-radius:11px;padding:13px 15px;color:#c9d1d9;font-size:11.5px;font-family:ui-monospace,Menlo,monospace;overflow-x:auto;line-height:1.7;margin-top:13px">
+              <div style="color:#7d8590">Columna J — ESTADO</div>
+              <div>=SI(G2="";"";SI(G2-HOY()&lt;0;"VENCIDO";SI(G2-HOY()&lt;=15;"POR VENCER";SI(G2-HOY()&lt;=30;"AVISO 30D";"VIGENTE"))))</div>
+              <div style="color:#7d8590;margin-top:9px">Columna K — DÍAS RESTANTES</div>
+              <div>=SI(G2="";"";G2-HOY())</div>
+            </div>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+            <div style="font-size:14px;font-weight:800;margin-bottom:12px">Alertas automáticas</div>
+            <sc-for list="{{ alertas }}" as="a" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:13px;padding:12px 0;border-bottom:1px solid #f2f3f5">
+                <div style="width:9px;height:9px;border-radius:50%;flex:none;background:{{ a.color }}"></div>
+                <div style="flex:1">
+                  <div style="font-size:13px;font-weight:700">{{ a.titulo }}</div>
+                  <div style="font-size:12px;color:#6b7280;margin-top:2px;text-wrap:pretty">{{ a.detalle }}</div>
+                </div>
+                <div style="font-size:11.5px;font-weight:800;color:#16a34a;flex:none">{{ a.estado }}</div>
+              </div>
+            </sc-for>
+          </section>
+
+          <section style="background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:18px">
+            <div style="font-size:14px;font-weight:800">Vista previa del correo diario</div>
+            <div style="border:1px solid #e5e7eb;border-radius:11px;margin-top:12px;overflow:hidden">
+              <div style="background:#fafbfc;padding:11px 14px;border-bottom:1px solid #eef0f3;font-size:12px;color:#6b7280">
+                <div><strong style="color:#14161a">Asunto:</strong> {{ asuntoCorreo }}</div>
+                <div style="margin-top:2px"><strong style="color:#14161a">Para:</strong> RRHH y jefaturas de área</div>
+              </div>
+              <div style="padding:14px">
+                <div style="font-size:12.5px;color:#4b5563;margin-bottom:10px">A continuación el detalle de carnet de sanidad a vencer en los próximos 15 días:</div>
+                <sc-for list="{{ correoRows }}" as="r" hint-placeholder-count="4">
+                  <div style="display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:6px 0;border-bottom:1px solid #f4f5f7">
+                    <span>{{ r.nombre }} — {{ r.area }}</span>
+                    <span style="font-weight:800;color:{{ r.color }};flex:none">{{ r.estadoTexto }}</span>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ hayVencidosCorreo }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:12.5px;font-weight:800;color:#14161a;margin-top:14px;margin-bottom:4px">{{ tituloVencidos }}</div>
+                </sc-if>
+                <sc-for list="{{ correoVencidos }}" as="r" hint-placeholder-count="2">
+                  <div style="display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:6px 0;border-bottom:1px solid #f4f5f7">
+                    <span>{{ r.nombre }} — {{ r.area }}</span>
+                    <span style="font-weight:800;color:{{ r.color }};flex:none">{{ r.estadoTexto }}</span>
+                  </div>
+                </sc-for>
+                <sc-if value="{{ sinCorreo }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:12.5px;color:#16a34a;font-weight:700">Sin carnets en riesgo. El correo no se envía.</div>
+                </sc-if>
+              </div>
+            </div>
+          </section>
+        </div>
+      </sc-if>
+
+    </div>
+
+    <footer style="border-top:1px solid #e5e7eb;background:#fff;padding:{{ footerPad }};display:flex;flex-direction:{{ footerDir }};align-items:{{ footerAlign }};justify-content:space-between;gap:5px">
+      <div style="font-size:11.5px;font-weight:800;color:#4b5563;flex:none">Created by: Edward Huaman Ortiz</div>
+      <div style="font-size:11.5px;color:#8b8f98;text-wrap:pretty">Para mayor información sobre el uso de esta aplicación contáctenos al correo: <a href="mailto:emas.aplicaciones@gmail.com" style="font-weight:700">emas.aplicaciones@gmail.com</a></div>
+    </footer>
+
+    <div class="no-print" sc-camel-on-click="{{ cerrarFoto }}" style="display:{{ modalDisplay }};position:fixed;inset:0;background:rgba(9,12,17,.86);z-index:60;align-items:center;justify-content:center;padding:18px;animation:popIn .18s ease">
+      <div style="background:#fff;border-radius:16px;padding:16px;max-width:940px;width:100%;max-height:92vh;overflow:auto">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px">
+          <div style="min-width:0">
+            <div style="font-size:14.5px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ fotoNombre }}</div>
+            <div style="font-size:11.5px;color:#6b7280;margin-top:2px">{{ fotoSub }}</div>
+          </div>
+          <div style="display:flex;gap:8px;flex:none;align-items:center">
+            <button sc-camel-on-click="{{ fotoRegistrar }}" style="display:{{ registrarDisplay }};background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:11px 15px;font-size:12.5px;font-weight:800;cursor:pointer;min-height:40px;align-items:center">Agregar foto</button>
+            <a href="{{ fotoWaLink }}" target="_blank" style="display:{{ compartirDisplay }};background:#fff;border:1px solid #d5d9e0;border-radius:9px;padding:11px 14px;font-size:12.5px;font-weight:700;color:#16a34a;align-items:center">Enviar mensaje de Alerta</a>
+            <button sc-camel-on-click="{{ cerrarFoto }}" style="background:#f3f4f6;border:0;border-radius:9px;width:40px;height:40px;font-size:16px;font-weight:700;color:#4b5563;cursor:pointer">✕</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ fotoGrid }};gap:10px">
+          <sc-for list="{{ fotoPanes }}" as="p" hint-placeholder-count="2">
+            <div>
+              <div style="font-size:10px;font-weight:800;letter-spacing:.06em;color:#6b7280;margin-bottom:5px">{{ p.etiqueta }}</div>
+              <div style="aspect-ratio:1.6;border-radius:11px;border:1px solid #e5e7eb;background:#f6f7f9;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                <sc-if value="{{ p.vacia }}" hint-placeholder-val="{{ false }}">
+                  <span style="font-size:11.5px;color:#9ca3af;font-weight:600">{{ p.texto }}</span>
+                </sc-if>
+                {{ p.img }}
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <nav class="no-print" style="display:{{ tabbarDisplay }};position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e5e7eb;padding:6px 4px calc(6px + env(safe-area-inset-bottom));z-index:20;box-shadow:0 -2px 12px rgba(16,24,40,.06)">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="5">
+        <button sc-camel-on-click="{{ item.go }}" style="flex:1;background:none;border:0;display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;cursor:pointer;min-height:52px;color:{{ item.tabFg }}">
+          <span style="font-size:17px;line-height:1">{{ item.icono }}</span>
+          <span style="font-size:10px;font-weight:700">{{ item.corto }}</span>
+        </button>
+      </sc-for>
+    </nav>
+    </sc-if>
+
+    <sc-if value="{{ mostrarPuerta }}" hint-placeholder-val="{{ false }}">
+      <div class="no-print" style="position:fixed;inset:0;z-index:100;background:#0f1319;color:#fff;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto">
+        <div style="width:100%;max-width:390px;display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;align-items:center;gap:11px">
+            <div style="width:38px;height:38px;flex:none;border-radius:11px;background:#1f6feb;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px">CS</div>
+            <div style="line-height:1.25">
+              <div style="font-weight:800;font-size:15px">Carnet Sanidad</div>
+              <div style="font-size:11.5px;color:#8b93a1">Control de carnets de sanidad</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:19px;font-weight:800;letter-spacing:-.01em">{{ puertaTitulo }}</div>
+            <div style="font-size:12.5px;color:#9aa3b0;margin-top:5px;line-height:1.55;text-wrap:pretty">{{ puertaSub }}</div>
+          </div>
+          <div style="display:{{ puertaUrlDisplay }}">
+            <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">CÓDIGO DE CONEXIÓN</label>
+            <input value="{{ puertaUrl }}" sc-camel-on-input="{{ onPuertaUrl }}" placeholder="https://script.google.com/…/exec" style="width:100%;box-sizing:border-box;padding:12px;border:1px solid #2a323d;border-radius:10px;font-size:13px;background:#171c24;color:#fff;outline:none">
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">CORREO</label>
+            <input value="{{ correoInput }}" sc-camel-on-input="{{ onCorreo }}" type="email" inputmode="email" placeholder="tucorreo@gmail.com" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #2a323d;border-radius:10px;font-size:14px;background:#171c24;color:#fff;outline:none">
+          </div>
+          <div>
+            <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em;margin-bottom:6px">CONTRASEÑA (6 NÚMEROS)</label>
+            <input value="{{ paseInput }}" sc-camel-on-input="{{ onPase }}" type="password" inputmode="numeric" placeholder="••••••" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #2a323d;border-radius:10px;font-size:21px;font-weight:800;letter-spacing:.3em;text-align:center;background:#171c24;color:#fff;outline:none">
+          </div>
+          <button sc-camel-on-click="{{ entrar }}" style="background:#1f6feb;color:#fff;border:0;border-radius:10px;padding:15px;font-size:14px;font-weight:800;cursor:pointer;min-height:50px">{{ entrarTexto }}</button>
+          <div style="font-size:12.5px;font-weight:700;color:{{ puertaMsgColor }};min-height:16px;text-wrap:pretty">{{ puertaMsg }}</div>
+          <button sc-camel-on-click="{{ cerrarPuerta }}" style="display:{{ cerrarPuertaDisplay }};background:#171c24;border:1px solid #2a323d;color:#fff;border-radius:10px;padding:12px;font-size:12.5px;font-weight:800;cursor:pointer;min-height:46px">Cerrar vista previa</button>
+          <button sc-camel-on-click="{{ entrarAdmin }}" style="display:{{ adminBtnDisplay }};background:transparent;border:1px solid #2a323d;color:#9aa3b0;border-radius:10px;padding:12px;font-size:12.5px;font-weight:700;cursor:pointer;min-height:46px">Soy el administrador</button>
+          <div style="display:{{ adminBoxDisplay }};flex-direction:column;gap:10px;border:1px solid #2a323d;border-radius:12px;padding:14px;background:#12161d">
+            <label style="display:block;font-size:10.5px;font-weight:800;color:#8b93a1;letter-spacing:.05em">CLAVE DE ADMINISTRADOR</label>
+            <input value="{{ adminClave }}" sc-camel-on-input="{{ onAdminClave }}" sc-camel-on-key-down="{{ onAdminKey }}" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" style="width:100%;box-sizing:border-box;padding:14px;border:1px solid #2a323d;border-radius:10px;font-size:21px;font-weight:800;letter-spacing:.3em;text-align:center;background:#171c24;color:#fff;outline:none">
+            <div style="display:flex;gap:8px">
+              <button sc-camel-on-click="{{ cancelarAdmin }}" style="flex:1;background:#171c24;border:1px solid #2a323d;color:#fff;border-radius:10px;padding:12px;font-size:12.5px;font-weight:800;cursor:pointer;min-height:46px">Cancelar</button>
+              <button sc-camel-on-click="{{ confirmarAdmin }}" style="flex:1;background:#1f6feb;border:0;color:#fff;border-radius:10px;padding:12px;font-size:12.5px;font-weight:800;cursor:pointer;min-height:46px">Entrar</button>
+            </div>
+          </div>
+          <div style="border-top:1px solid #232a35;padding-top:12px;font-size:11px;color:#6b7280;line-height:1.6;text-wrap:pretty">Created by: Edward Huaman Ortiz<br>Para mayor información sobre el uso de esta aplicación contáctenos al correo: <a href="mailto:emas.aplicaciones@gmail.com" style="color:#8ab4ff;font-weight:700">emas.aplicaciones@gmail.com</a></div>
+        </div>
+      </div>
+    </sc-if>
+  </main>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:960}}">
+const AREAS = ["CARNES Y POLLOS","POLLOS BRASSA","PESCADOS","EMBUTIDOS Y LACTEOS","CONFITERIA","SALAD BAR","PANADERIA","FRUTAS Y VERDURAS","ABARROTES","BAZAR","CAJAS","RECEPCION DE MERCADERIA","ALMACEN","ADMINISTRACION"].sort((a,b)=>a.localeCompare(b,"es"));
+const STORE = "carnets_sanidad_v2";
+const URLKEY = "carnets_sanidad_url";
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const MESES_L = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const ADMKEY = "carnets_admin";
+const TIENDAKEY = "carnets_tienda";
+const PIN = "2580";
+const ACCKEY = "carnets_usuarios";
+const PASEKEY = "carnets_pase";
+const BORRKEY = "carnets_borrados";
+// conexión de fábrica: así cualquier copia compartida ya sabe con qué hoja validar los códigos
+const URL_DEFECTO = "https://script.google.com/macros/s/AKfycbxt84-eyLUkH7n5htN_EfHll4sqg2STEYznQPONy9Q8TUTz5iwaZaYtNp5woTtiIMORSw/exec";
+const VER_MIN = 20;  // version del Apps Script que guarda las fotos en Drive
+const DEVKEY = "carnets_dev";
+const APPKEY = "carnets_app_url";
+const VACIO = {dni:"",nombre:"",area:AREAS[0],manip:true,emision:"",vencimiento:"",celular:"",fotoFrente:null,fotoReverso:null,archivoPdf:null};
+
+const APPS_SCRIPT = [
+'const HOJA = "Registros";',
+'const VERSION = "20";',
+'const HOJA_USR = "Usuarios";',
+'const HOJA_DEL = "Eliminados";',
+'const CARPETA = "fotos de carnet";  // carpeta de Drive donde se guardan las imagenes',
+'const CAB_USR = ["NOMBRE","CORREO","CLAVE (6 DIGITOS)","ESTADO"];',
+'const DESTINOS = "rrhh@tutienda.com, jefatura@tutienda.com";',
+'const CABECERA = ["DNI","NOMBRE DEL COLABORADOR","CELULAR (WHATSAPP)","AREA",',
+'  "MANIPULADOR","FECHA DE EMISION CARNET","FECHA DE VENCIMIENTO CARNET",',
+'  "FOTO FRENTE","FOTO REVERSO","ESTADO","DIAS RESTANTES"];',
+'',
+'function hojaDe(nombre) {',
+'  const ss = SpreadsheetApp.getActiveSpreadsheet();',
+'  let h = ss.getSheetByName(nombre) || ss.insertSheet(nombre);',
+'  if (h.getLastRow() === 0) h.appendRow(CABECERA);',
+'  return h;',
+'}',
+'function hoja() { return hojaDe(HOJA); }',
+'function destino(d) { return hojaDe(d && d.hoja === "Eliminados" ? HOJA_DEL : HOJA); }',
+'',
+'function carpeta() {',
+'  const it = DriveApp.getFoldersByName(CARPETA);',
+'  return it.hasNext() ? it.next() : DriveApp.createFolder(CARPETA);',
+'}',
+'',
+'// guarda la imagen como archivo en Drive y devuelve un enlace que se ve en la app',
+'function subirADrive(nombre, dataUrl, dni, suf, esPdf) {',
+'  const coma = dataUrl.indexOf(",");',
+'  const tipo = (dataUrl.substring(5, coma).split(";")[0]) || "image/jpeg";',
+'  const bytes = Utilities.base64Decode(dataUrl.substring(coma + 1));',
+'  const blob = Utilities.newBlob(bytes, tipo, nombre);',
+'  const car = carpeta();',
+'  const viejos = car.getFilesByName(nombre);',
+'  while (viejos.hasNext()) viejos.next().setTrashed(true);',
+'  // limpia la version anterior del mismo DNI y lado aunque el nombre haya cambiado',
+'  if (dni) {',
+'    try {',
+'      const bus = car.searchFiles(\'title contains "\' + dni + \'" and title contains "\' + suf + \'"\');',
+'      while (bus.hasNext()) bus.next().setTrashed(true);',
+'    } catch (err) {}',
+'  }',
+'  const f = car.createFile(blob);',
+'  f.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);',
+'  if (esPdf) return "https://drive.google.com/file/d/" + f.getId() + "/preview";',
+'  return "https://drive.google.com/thumbnail?id=" + f.getId() + "&sz=w1200";',
+'}',
+'',
+'// si falta la columna se crea al final de la cabecera',
+'function colDe(h, m, i, titulo) {',
+'  if (i >= 0) return i;',
+'  const c = h.getLastColumn();',
+'  h.insertColumnAfter(c);',
+'  h.getRange(m.cab, c + 1).setValue(titulo);',
+'  return c;',
+'}',
+'',
+'// las fotos llegan en partes: el navegador no deja enviar textos largos de una vez',
+'// eliminar definitivamente: manda a la papelera de Drive todas las fotos de ese DNI',
+'function borrarFotosDrive(dni) {',
+'  if (!dni) return;',
+'  try {',
+'    const bus = carpeta().searchFiles(\'title contains "\' + dni + \'"\');',
+'    while (bus.hasNext()) { const a = bus.next(); if (a.getName().indexOf(dni) === 0) a.setTrashed(true); }',
+'  } catch (err) {}',
+'}',
+'',
+'function guardarFoto(f) {',
+'  const cache = CacheService.getScriptCache();',
+'  const k = "FOTO" + (f.hoja || "") + f.dni + f.campo;',
+'  let acc = f.datos;',
+'  if (f.n > 1) {',
+'    cache.put(k + "_" + f.i, f.datos, 3600);',
+'    const claves = []; for (let i = 0; i < f.n; i++) claves.push(k + "_" + i);',
+'    const todo = cache.getAll(claves);',
+'    if (Object.keys(todo).length < f.n) return;',
+'    acc = claves.map(c => todo[c]).join("");',
+'    cache.removeAll(claves);',
+'  }',
+'  const dni = String(f.dni).trim();',
+'  const esPdf = f.campo === "pdf";',
+'  const suf = esPdf ? "-documento" : f.campo === "f2" ? "-reverso" : "-frente";',
+'  const limpio = String(f.nombre || "").replace(/[\\\\/:*?"<>|]/g, " ").replace(/\\s+/g, " ").trim();',
+'  // formato pedido:  12345678 (NOMBRE)-frente.jpg',
+'  const nombre = dni + (limpio ? " (" + limpio + ")" : "") + suf + (esPdf ? ".pdf" : ".jpg");',
+'  const enlace = subirADrive(nombre, acc, dni, suf, esPdf);',
+'  const h = destino(f);',
+'  SpreadsheetApp.flush();',
+'  const m = mapaReg(h), ix = m.ix;',
+'  let n = -1, ultima = m.cab;',
+'  for (let i = m.cab; i < m.v.length; i++) {',
+'    const v = String(m.v[i][ix.dni]).trim();',
+'    if (v) ultima = i + 1;',
+'    if (v === dni && n < 0) n = i + 1;',
+'  }',
+'  // si la fila aun no existe se crea: la foto nunca se pierde',
+'  if (n < 0) { h.insertRowAfter(ultima); n = ultima + 1; h.getRange(n, ix.dni + 1).setValue(dni);',
+'    if (ix.nombre >= 0 && limpio) h.getRange(n, ix.nombre + 1).setValue(limpio); }',
+'  let c = esPdf ? ix.pdf : f.campo === "f2" ? ix.f2 : ix.f1;',
+'  // si la hoja no tiene columna de foto se crea al final: el enlace nunca se descarta',
+'  if (c < 0) {',
+'    c = h.getLastColumn();',
+'    h.insertColumnAfter(c);',
+'    h.getRange(m.cab, c + 1).setValue(esPdf ? "ARCHIVO PDF" : f.campo === "f2" ? "FOTO REVERSO" : "FOTO FRENTE");',
+'  }',
+'  h.getRange(n, c + 1).setValue(enlace);',
+'  SpreadsheetApp.flush();',
+'}',
+'',
+'// busca la fila de cabecera en las primeras filas: tolera hojas convertidas en TABLA',
+'function mapaReg(h) {',
+'  const v = h.getDataRange().getValues();',
+'  const norm = s => String(s).toUpperCase().replace(/[^A-Z]/g, "");',
+'  for (let i = 0; i < Math.min(v.length, 10); i++) {',
+'    const c = v[i].map(norm);',
+'    if (c.indexOf("DNI") >= 0 || c.indexOf("DOCUMENTO") >= 0) {',
+'      return {v: v, cab: i + 1, ix: indices(v[i])};',
+'    }',
+'  }',
+'  return {v: v, cab: 1, ix: indices(v[0] || [])};',
+'}',
+'',
+'function leerFilas(h) {',
+'  const m = mapaReg(h), v = m.v, ix = m.ix;',
+'  const fecha = d => {',
+'    if (d instanceof Date) return Utilities.formatDate(d, "GMT-5", "yyyy-MM-dd");',
+'    const s = String(d || ""); return s ? s.slice(0, 10) : "";',
+'  };',
+'  const val = (r, i) => i >= 0 ? r[i] : "";',
+'  return v.slice(m.cab).filter(r => val(r, ix.dni)).map(r => ({',
+'    dni: String(val(r, ix.dni)).trim(),',
+'    nombre: String(val(r, ix.nombre)).trim(),',
+'    area: String(val(r, ix.area)).trim(),',
+'    manip: String(val(r, ix.manip)).trim().toUpperCase().indexOf("S") === 0,',
+'    celular: String(val(r, ix.celular) || "").trim(),',
+'    emision: fecha(val(r, ix.emision)), vencimiento: fecha(val(r, ix.vencimiento)),',
+'    eliminadoPor: String(val(r, ix.elimPor) || "").trim(), eliminadoEl: fecha(val(r, ix.elimEl)),',
+'    fotoFrente: /^http/.test(String(val(r, ix.f1) || "")) ? String(val(r, ix.f1)) : "",',
+'    fotoReverso: /^http/.test(String(val(r, ix.f2) || "")) ? String(val(r, ix.f2)) : "",',
+'    tieneFrente: /^(data:|http)/.test(String(val(r, ix.f1) || "")),',
+'    tieneReverso: /^(data:|http)/.test(String(val(r, ix.f2) || ""))',
+'  }));',
+'}',
+'',
+'// Lee por NOMBRE de cabecera, no por posicion: tolera cualquier orden de columnas',
+'function hojaUsuarios() {',
+'  const ss = SpreadsheetApp.getActiveSpreadsheet();',
+'  let h = ss.getSheetByName(HOJA_USR) || ss.insertSheet(HOJA_USR);',
+'  if (h.getLastRow() === 0) h.appendRow(CAB_USR);',
+'  return h;',
+'}',
+'',
+'// Tolera que la hoja este convertida en TABLA: busca la fila de cabecera y las',
+'// columnas por su nombre, en cualquier orden y aunque haya filas de titulo arriba.',
+'function mapaUsuarios() {',
+'  const h = hojaUsuarios();',
+'  const v = h.getDataRange().getValues();',
+'  const norm = s => String(s).toUpperCase().replace(/[^A-Z]/g, "");',
+'  let fila = -1, ix = null;',
+'  for (let i = 0; i < Math.min(v.length, 10); i++) {',
+'    const c = v[i].map(norm);',
+'    const correo = c.indexOf("CORREO");',
+'    if (correo < 0) continue;',
+'    const buscar = alias => { for (const a of alias) { const k = c.indexOf(norm(a)); if (k >= 0) return k; } return -1; };',
+'    ix = {nombre: buscar(["NOMBRE","NOMBRES","USUARIO"]), correo: correo,',
+'      clave: buscar(["CLAVE6DIGITOS","CLAVE","CONTRASENA","CONTRASEÑA","PASSWORD"]),',
+'      estado: buscar(["ESTADO","SITUACION"])};',
+'    fila = i + 1; break;',
+'  }',
+'  if (fila < 0) { fila = 1; ix = {nombre: 0, correo: 1, clave: 2, estado: 3}; }',
+'  return {h: h, v: v, cab: fila, ix: ix};',
+'}',
+'',
+'function leerUsuarios() {',
+'  const m = mapaUsuarios();',
+'  const val = (r, i) => i >= 0 ? r[i] : "";',
+'  return m.v.slice(m.cab).filter(r => String(val(r, m.ix.correo)).indexOf("@") > 0).map(r => ({',
+'    nombre: String(val(r, m.ix.nombre)).trim(),',
+'    correo: String(val(r, m.ix.correo)).trim().toLowerCase(),',
+'    clave: String(val(r, m.ix.clave)).trim().replace(/[^0-9]/g, ""),',
+'    activo: String(val(r, m.ix.estado)).toUpperCase().indexOf("BLOQ") < 0',
+'  }));',
+'}',
+'',
+'function guardarUsuario(u) {',
+'  const m = mapaUsuarios(), h = m.h, ix = m.ix;',
+'  const correo = String(u.correo).trim().toLowerCase();',
+'  let n = -1;',
+'  for (let i = m.cab; i < m.v.length; i++) {',
+'    if (String(m.v[i][ix.correo]).trim().toLowerCase() === correo) { n = i + 1; break; }',
+'  }',
+'  if (u.borrar) { if (n > 0) h.deleteRow(n); return; }',
+'  if (n < 0) {',
+'    // se inserta justo debajo de la ultima fila con datos: asi la fila entra',
+'    // dentro del rango de la tabla en lugar de quedar fuera',
+'    let ultima = m.cab;',
+'    for (let i = m.cab; i < m.v.length; i++) if (String(m.v[i][ix.correo]).trim()) ultima = i + 1;',
+'    h.insertRowAfter(ultima);',
+'    n = ultima + 1;',
+'  }',
+'  const set = (i, val) => { if (i >= 0) h.getRange(n, i + 1).setValue(val); };',
+'  set(ix.nombre, u.nombre);',
+'  set(ix.correo, correo);',
+'  set(ix.clave, "\u0027" + String(u.clave));',
+'  set(ix.estado, u.activo === false ? "BLOQUEADO" : "ACTIVO");',
+'}',
+'',
+'function indices(cab) {',
+'  const norm = s => String(s).toUpperCase().replace(/[^A-Z]/g, "");',
+'  const c = cab.map(norm);',
+'  const buscar = alias => { for (const a of alias) { const i = c.indexOf(norm(a)); if (i >= 0) return i; } return -1; };',
+'  // las columnas de foto se buscan tambien por parecido: cada hoja las titula distinto',
+'  const parecido = alias => {',
+'    const ex = buscar(alias); if (ex >= 0) return ex;',
+'    for (const a of alias) { const t = norm(a);',
+'      for (let i = 0; i < c.length; i++) if (c[i] && c[i].indexOf(t) >= 0) return i; }',
+'    return -1;',
+'  };',
+'  return {',
+'    dni: buscar(["DNI","DOCUMENTO"]),',
+'    nombre: buscar(["NOMBREDELCOLABORADOR","NOMBRE","NOMBRES","COLABORADOR"]),',
+'    area: buscar(["AREA","SECCION"]), manip: buscar(["MANIPULADOR","MANIPULADORDEALIMENTOS"]),',
+'    celular: buscar(["CELULARWHATSAPP","CELULAR","TELEFONO","WHATSAPP"]),',
+'    emision: buscar(["FECHADEEMISIONCARNET","FECHADEEMISION","EMISION"]),',
+'    vencimiento: buscar(["FECHADEVENCIMIENTOCARNET","FECHADEVENCIMIENTO","VENCIMIENTO","VENCE"]),',
+'    f1: parecido(["FOTOFRENTE","FOTOCARNETFRONTAL","FRONTAL","FRENTE","FOTO1"]),',
+'    f2: parecido(["FOTOREVERSO","FOTOCARNETANVERSO","ANVERSO","REVERSO","POSTERIOR","FOTO2"]),',
+'    elimPor: buscar(["ELIMINADOPOR","BORRADOPOR"]),',
+'    elimEl: buscar(["FECHAELIMINACION","FECHADEELIMINACION","ELIMINADOEL"]),',
+'    estado: buscar(["ESTADO","VIGENCIA"]), dias: buscar(["DIASRESTANTES","DIAS"])',
+'  };',
+'}',
+'',
+'function doGet(e) {',
+'  // escritura por GET: los navegadores bloquean el POST cuando la app se abre',
+'  // como archivo local, asi que los guardados pequenos llegan por aqui',
+'  if (e && e.parameter && e.parameter.guardar) {',
+'    escribir(JSON.parse(e.parameter.guardar));',
+'    return ContentService.createTextOutput(JSON.stringify({ok: true, guardado: true, version: VERSION}))',
+'      .setMimeType(ContentService.MimeType.JSON);',
+'  }',
+'  // ?usuarios=1 devuelve solo la lista de personas autorizadas (pantalla de ingreso):',
+'  // no toca la hoja de registros, asi el ingreso es rapido',
+'  if (e && e.parameter && e.parameter.usuarios) {',
+'    return ContentService.createTextOutput(JSON.stringify({ok: true, usuarios: leerUsuarios()}))',
+'      .setMimeType(ContentService.MimeType.JSON);',
+'  }',
+'  // ?foto=DNI devuelve solo las dos imagenes de ese colaborador (a pedido)',
+'  const pedido = e && e.parameter && e.parameter.foto;',
+'  if (pedido) {',
+'    const m = mapaReg(destino({hoja: e.parameter.hoja}));',
+'    const f = m.v.slice(m.cab).filter(r => String(r[m.ix.dni]).trim() === String(pedido).trim())[0] || [];',
+'    return ContentService.createTextOutput(JSON.stringify({ok: true,',
+'      colF1: m.ix.f1, colF2: m.ix.f2,',
+'      fotoFrente: f[m.ix.f1] || null, fotoReverso: f[m.ix.f2] || null}))',
+'      .setMimeType(ContentService.MimeType.JSON);',
+'  }',
+'  const regs = leerFilas(hoja());',
+'  return ContentService.createTextOutput(JSON.stringify({ok: true, version: VERSION, regs: regs,',
+'    eliminados: leerFilas(hojaDe(HOJA_DEL)), usuarios: leerUsuarios()}))',
+'    .setMimeType(ContentService.MimeType.JSON);',
+'}',
+'',
+'function doPost(e) {',
+'  // el envio grande (fotos) llega como formulario: no lo bloquea el navegador',
+'  const cuerpo = (e && e.parameter && e.parameter.guardar) ? e.parameter.guardar : e.postData.contents;',
+'  escribir(JSON.parse(cuerpo));',
+'  return ContentService.createTextOutput(JSON.stringify({ok: true}))',
+'    .setMimeType(ContentService.MimeType.JSON);',
+'}',
+'',
+'function escribir(d) {',
+'  if (d.usuario) { guardarUsuario(d.usuario); return; }',
+'  if (d.foto) { guardarFoto(d.foto); return; }',
+'  const h = destino(d);',
+'  const m = mapaReg(h), ix = m.ix;',
+'  let n = -1, ultima = m.cab;',
+'  for (let i = m.cab; i < m.v.length; i++) {',
+'    const val = String(m.v[i][ix.dni]).trim();',
+'    if (val) ultima = i + 1;',
+'    if (val === String(d.dni).trim() && n < 0) n = i + 1;',
+'  }',
+'  if (d.borrar) {',
+'    if (n > 0) h.deleteRow(n);',
+'    if (d.purgar) borrarFotosDrive(String(d.dni).trim());',
+'  } else {',
+'    if (n < 0) {',
+'      // se inserta debajo de la ultima fila con datos para caer DENTRO de la tabla',
+'      h.insertRowAfter(ultima);',
+'      n = ultima + 1;',
+'    }',
+'    const set = (i, v) => { if (i >= 0) h.getRange(n, i + 1).setValue(v); };',
+'    set(ix.dni, String(d.dni)); set(ix.nombre, d.nombre); set(ix.area, d.area);',
+'    set(ix.manip, d.manip ? "SI" : "NO"); set(ix.celular, String(d.celular || ""));',
+'    set(ix.emision, d.emision); set(ix.vencimiento, d.vencimiento);',
+'    if (/^http/.test(String(d.fotoFrente || ""))) set(ix.f1, d.fotoFrente);',
+'    if (/^http/.test(String(d.fotoReverso || ""))) set(ix.f2, d.fotoReverso);',
+'    if (d.eliminadoPor) { ix.elimPor = colDe(h, m, ix.elimPor, "ELIMINADO POR"); set(ix.elimPor, d.eliminadoPor); }',
+'    if (d.eliminadoEl) { ix.elimEl = colDe(h, m, ix.elimEl, "FECHA ELIMINACION"); set(ix.elimEl, d.eliminadoEl); }',
+'    const cv = h.getRange(1, ix.vencimiento + 1).getA1Notation().replace(/[0-9]+/, "") + n;',
+'    if (ix.estado >= 0) h.getRange(n, ix.estado + 1).setFormula(',
+'      \'=SI(\' + cv + \'="";"";SI(\' + cv + \'-HOY()<0;"VENCIDO";SI(\' + cv + \'-HOY()<=15;"POR VENCER";SI(\' + cv + \'-HOY()<=30;"AVISO 30D";"VIGENTE"))))\');',
+'    if (ix.dias >= 0) h.getRange(n, ix.dias + 1).setFormula(\'=SI(\' + cv + \'="";"";\' + cv + \'-HOY())\');',
+'  }',
+'  SpreadsheetApp.flush();',
+'}',
+'',
+'// Ejecuta esta funcion UNA VEZ a mano para probar que el correo llega',
+'function probarCorreo() { alertaDiaria(); }',
+'',
+'// Activador: temporizador diario 7-8 a.m.',
+'function alertaDiaria() {',
+'  const m = mapaReg(hoja());',
+'  const ix = m.ix;',
+'  const hoy = new Date(); hoy.setHours(0, 0, 0, 0);',
+'  const venc = [], porVencer = [];',
+'  m.v.slice(m.cab).forEach(r => {',
+'    const f = r[ix.vencimiento];',
+'    if (!r[ix.dni] || !f) return;',
+'    const dias = Math.round((new Date(f) - hoy) / 86400000);',
+'    const x = {nombre: r[ix.nombre], area: r[ix.area], dias: dias};',
+'    if (dias < 0) venc.push(x); else if (dias <= 15) porVencer.push(x);',
+'  });',
+'  venc.sort((a, b) => a.dias - b.dias); porVencer.sort((a, b) => a.dias - b.dias);',
+'  if (!venc.length && !porVencer.length) return;',
+'  const li = a => a.map(x => "<li><b>" + x.nombre + "</b> - " + x.area + " - " +',
+'    (x.dias < 0 ? "vencido hace " + (-x.dias) : x.dias === 0 ? "vence hoy" : "vence en " + x.dias) +',
+'    (x.dias === 0 ? "" : " dias") + "</li>").join("");',
+'  let cuerpo = "<p>A continuacion el detalle de carnet de sanidad a vencer en los proximos 15 dias:</p>";',
+'  cuerpo += "<ul>" + li(porVencer) + "</ul>";',
+'  if (venc.length) cuerpo += "<h3>Ya vencidos (" + venc.length + ")</h3><ul>" + li(venc) + "</ul>";',
+'  MailApp.sendEmail({',
+'    to: DESTINOS,',
+'    subject: "Carnet de Sanidad (" + porVencer.length + ") por vencer en 15 dias",',
+'    htmlBody: cuerpo',
+'  });',
+'}'
+].join("\n");
+
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    let regs = [], url = "", admin = false, tienda = "Tienda Central", accesos = [], sesion = null, borrados = [];
+    try {
+      // el snapshot local no entra al estado hasta que alguien inicia sesión
+      this._cacheRegs = JSON.parse(localStorage.getItem(STORE) || "[]") || [];
+      regs = [];
+      url = localStorage.getItem(URLKEY) || URL_DEFECTO;
+      // la sesión vive solo en esta pestaña: recargar la mantiene, cerrar la app la borra
+      try{ localStorage.removeItem(ADMKEY); }catch(e){}
+      admin = sessionStorage.getItem(ADMKEY) === "1";
+      tienda = localStorage.getItem(TIENDAKEY) || "Tienda Central";
+      accesos = JSON.parse(localStorage.getItem(ACCKEY) || "[]") || [];
+      accesos = accesos.filter(a=>a && a.correo);
+      if(!admin){ accesos=[]; try{ localStorage.removeItem(ACCKEY); }catch(e){} }
+      try{ localStorage.removeItem(PASEKEY); }catch(e){}
+      try{ sesion = JSON.parse(sessionStorage.getItem(PASEKEY)||"null"); }catch(e){ sesion=null; }
+      this._cacheBorr = JSON.parse(localStorage.getItem(BORRKEY) || "[]") || [];
+      // con la sesión ya leída, el snapshot local vuelve al estado si hay sesión válida
+      if(admin || sesion){ regs = this._cacheRegs||[]; borrados = this._cacheBorr||[]; }
+    } catch(e) {}
+    if(!url) url = URL_DEFECTO;
+    let appUrl = "";
+    try { appUrl = localStorage.getItem(APPKEY) || ""; } catch(e) {}
+    this.state = {
+      view:"panel", regs, q:"", fArea:"Todas las áreas", fEstado:"todos",
+      modo:"nuevo", msg:"", msgOk:true, csv:"Copiar CSV", script:"Copiar código",
+      url, urlInput:url, sync:url?"pendiente":"local", syncMsg:url?"Conectada. Sincronizando…":"Sin conectar — los datos se guardan solo en este dispositivo.",
+      w: typeof window!=="undefined"?window.innerWidth:1280,
+      admin, tienda, tiendaInput:tienda, verFoto:null, toques:0,
+      accesos, sesion, correoInput:"", paseInput:"", puertaUrl:"", puertaMsg:"", puertaOk:false, bienvenida:"",
+      nuevoCorreo:"", nuevaClave:"", entrando:false,
+      borrados, buscaCol:"", rEstado:"todos", accDiag:"",
+      appUrl, appUrlInput:appUrl,
+      nuevoNombre:"", nuevoCel:"", accMsg:"", accOk:true,
+      form:{...VACIO}
+    };
+  }
+  dentro(){ return !!(this.state.admin || this.state.sesion); }
+  // al iniciar sesión se recupera el snapshot local y se relee la hoja
+  abrirDatos(){
+    this.setState({regs:this._cacheRegs||[], borrados:this._cacheBorr||[]}, ()=>{ if(this.state.url) this.jalar(true); });
+  }
+  componentDidMount(){
+    this._r = ()=>this.setState({w:window.innerWidth});
+    window.addEventListener("resize", this._r);
+    if(this.state.url && this.dentro()) this.jalar();
+    this._t = setInterval(()=>{ if(this.state.url && this.dentro() && document.visibilityState==="visible") this.jalar(true); }, 12000);
+    // al volver a la app (cambiar de pestaña, desbloquear el celular) se relee la hoja al instante
+    this._v = ()=>{ if(this.state.url && this.dentro() && document.visibilityState==="visible") this.jalar(true); };
+    document.addEventListener("visibilitychange", this._v);
+    window.addEventListener("focus", this._v);
+  }
+  componentWillUnmount(){
+    window.removeEventListener("resize", this._r);
+    document.removeEventListener("visibilitychange", this._v);
+    window.removeEventListener("focus", this._v);
+    clearInterval(this._t);
+  }
+
+  iso(d){ return d.toISOString().slice(0,10); }
+  // acepta "2027-01-07", "2027-01-07T05:00:00.000Z", "07/01/2027" y objetos Date
+  norm(v){
+    if(!v) return "";
+    if(v instanceof Date) return isNaN(v)?"":this.iso(v);
+    let s=String(v).trim(); if(!s) return "";
+    if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
+    const m=s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+    if(m) return m[3]+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[1]).slice(-2);
+    const d=new Date(s); return isNaN(d)?"":this.iso(d);
+  }
+  fmt(v){ const s=this.norm(v); if(!s) return "—"; const d=new Date(s+"T00:00:00"); if(isNaN(d)) return "—"; return d.getDate()+" "+MESES[d.getMonth()]+" "+String(d.getFullYear()).slice(2); }
+  dias(v){ const s=this.norm(v); if(!s) return NaN; const h=new Date(); h.setHours(0,0,0,0); return Math.round((new Date(s+"T00:00:00")-h)/86400000); }
+  estado(s){ const d=this.dias(s); if(isNaN(d)) return {k:"sinfecha",t:"Sin fecha",c:"#6b7280",bg:"#f3f4f6",d:99999};
+    if(d<0) return {k:"vencido",t:"Vencido",c:"#dc2626",bg:"#fee2e2",d};
+    if(d<=15) return {k:"critico",t:"Vence en "+d+"d",c:"#dc2626",bg:"#fee2e2",d};
+    if(d<=30) return {k:"aviso",t:"Aviso "+d+"d",c:"#b45309",bg:"#fef3c7",d};
+    return {k:"vigente",t:"Vigente",c:"#16a34a",bg:"#dcfce7",d}; }
+
+  tocarLogo(){
+    if(this.state.admin){ this.setState({view:"config"}); return; }
+    const n=this.state.toques+1;
+    if(n<3){ this.setState({toques:n}); setTimeout(()=>this.setState({toques:0}),2500); return; }
+    this.setState({toques:0,adminAbierto:true,adminClave:""});
+  }
+  salirApp(){
+    if(!confirm("¿Salir de la aplicación?\n\nTendrás que ingresar con tu correo y contraseña para volver a entrar.")) return;
+    try{ localStorage.removeItem(PASEKEY); localStorage.removeItem(ADMKEY); sessionStorage.removeItem(PASEKEY); sessionStorage.removeItem(ADMKEY); }catch(e){}
+    this._cacheRegs=this.state.regs; this._cacheBorr=this.state.borrados||[];
+    this.setState({sesion:null,correoInput:"",paseInput:"",admin:false,accesos:[],regs:[],borrados:[],
+      view:"panel",puertaMsg:"",puertaOk:false,bienvenida:""});
+  }
+  salirAdmin(){ try{ localStorage.removeItem(ADMKEY); sessionStorage.removeItem(ADMKEY); }catch(e){}
+    this._cacheRegs=this.state.regs; this._cacheBorr=this.state.borrados||[];
+    this.setState({admin:false,accesos:[],regs:[],borrados:[],sesion:null,view:"panel"}); }
+  persistBorrados(list){
+    const enlace=v=>/^http/.test(String(v||""))?v:null;
+    const ligero=list.map(r=>({...r,fotoFrente:enlace(r.fotoFrente),fotoReverso:enlace(r.fotoReverso),archivoPdf:enlace(r.archivoPdf)}));
+    try{ localStorage.setItem(BORRKEY, JSON.stringify(ligero)); }catch(e){}
+  }
+
+  // eliminar = archivar: la fila queda en la hoja con DNI "DEL<dni>" y sin vencimiento,
+  // así no entra al reporte ni al correo diario, pero se puede habilitar de nuevo
+  async eliminar(dni){
+    const r=this.state.regs.find(x=>String(x.dni)===String(dni)); if(!r) return;
+    if(!confirm("¿Eliminar a "+(r.nombre||dni)+"?\n\nPasa a la pestaña «Eliminados» y puedes habilitarlo cuando quieras.")) return;
+    let f1=r.fotoFrente, f2=r.fotoReverso, pdf=r.archivoPdf;
+    if(!f1&&!f2&&r.hayFotoRemota){ const g=await this.traerFotos(dni); if(g){ f1=g.frente; f2=g.reverso; pdf=g.pdf||pdf; } }
+    const st0=this.state, quien=(st0.sesion&&st0.sesion.nombre)||(st0.admin?"Administrador":"");
+    const cuando=this.iso(new Date());
+    const arch={...r,fotoFrente:f1||null,fotoReverso:f2||null,archivoPdf:pdf||null,borradoEl:cuando,eliminadoPor:quien};
+    const regs=this.state.regs.filter(x=>String(x.dni)!==String(dni));
+    const borrados=[arch,...(this.state.borrados||[])];
+    this.persist(regs); this.persistBorrados(borrados);
+    this.setState({regs,borrados});
+    const enlace=v=>/^http/.test(String(v||""))?String(v):"";
+    const ok=await this.empujarGet({hoja:"Eliminados",dni:String(dni),nombre:r.nombre,area:r.area,
+      manip:!!r.manip,celular:r.celular||"",emision:r.emision,vencimiento:r.vencimiento||"",
+      fotoFrente:enlace(f1),fotoReverso:enlace(f2),archivoPdf:enlace(pdf),eliminadoPor:quien,eliminadoEl:cuando});
+    if(ok){
+      await this.subirFoto(dni,"f1",f1,"Eliminados",r.nombre);
+      await this.subirFoto(dni,"f2",f2,"Eliminados",r.nombre);
+      this.empujarGet({dni:String(dni),borrar:true});
+    }
+  }
+  async purgar(dni){
+    const b=(this.state.borrados||[]).find(x=>String(x.dni)===String(dni)); if(!b) return;
+    if(!confirm("¿Está seguro que desea eliminar definitivamente el registro de este carnet?\n\n"+(b.nombre||dni)+" · DNI "+dni+"\n\nSe borrará de la hoja de Google Sheets y sus fotos de Drive. Esta acción no se puede deshacer.")) return;
+    const borrados=(this.state.borrados||[]).filter(x=>String(x.dni)!==String(dni));
+    this.persistBorrados(borrados);
+    this.setState({borrados});
+    const ok=await this.empujarGet({hoja:"Eliminados",dni:String(dni),borrar:true,purgar:true});
+    if(ok) this.setState({sync:"ok",syncMsg:"Registro de "+(b.nombre||dni)+" eliminado definitivamente ✓"});
+  }
+  async habilitar(dni){
+    const b=(this.state.borrados||[]).find(x=>String(x.dni)===String(dni)); if(!b) return;
+    if(!confirm("¿Habilitar nuevamente a "+b.nombre+"?\n\nVuelve a la lista de colaboradores.")) return;
+    let f1=b.fotoFrente, f2=b.fotoReverso, pdf=b.archivoPdf;
+    if(!f1&&!f2&&b.hayFotoRemota&&this.state.url){
+      const u=this.state.url;
+      try{
+        const res=await fetch(u+(u.indexOf("?")>=0?"&":"?")+"foto="+encodeURIComponent(dni)+"&hoja=Eliminados&t="+Date.now());
+        const j=await res.json();
+        f1=/^(data:|http)/.test(String(j.fotoFrente||""))?j.fotoFrente:null;
+        f2=/^(data:|http)/.test(String(j.fotoReverso||""))?j.fotoReverso:null;
+        if(/^http/.test(String(j.archivoPdf||""))) pdf=j.archivoPdf;
+      }catch(e){}
+    }
+    const venc=this.norm(b.vencimiento)||this.addMeses(b.emision,b.manip?6:12);
+    const reg={dni:String(dni),nombre:b.nombre,area:b.area,manip:!!b.manip,celular:b.celular||"",
+      emision:b.emision,vencimiento:venc,fotoFrente:f1||null,fotoReverso:f2||null,archivoPdf:pdf||null};
+    const regs=[reg,...this.state.regs.filter(x=>String(x.dni)!==String(dni))];
+    const borrados=(this.state.borrados||[]).filter(x=>String(x.dni)!==String(dni));
+    this.persist(regs); this.persistBorrados(borrados);
+    this.setState({regs,borrados,fEstado:"todos"});
+    const enlace=v=>/^http/.test(String(v||""))?String(v):"";
+    const {fotoFrente:_ff,fotoReverso:_fr,archivoPdf:_ap,...base}=reg;
+    const datos={...base,fotoFrente:enlace(f1),fotoReverso:enlace(f2),archivoPdf:enlace(pdf)};
+    const ok=await this.empujarGet(datos);
+    if(ok){
+      await this.subirFoto(dni,"f1",f1,"Registros",b.nombre);
+      await this.subirFoto(dni,"f2",f2,"Registros",b.nombre);
+      this.empujarGet({hoja:"Eliminados",dni:String(dni),borrar:true});
+    }
+  }
+  // identificador de este equipo: un código queda vinculado al primero donde se usa
+  dev(){
+    if(this._dev) return this._dev;
+    let d="";
+    try{ d=localStorage.getItem(DEVKEY)||""; if(!d){ d=Math.random().toString(36).slice(2,8)+Date.now().toString(36).slice(-4); localStorage.setItem(DEVKEY,d); } }
+    catch(e){ d="tmp"+Math.random().toString(36).slice(2,8); }
+    this._dev=d; return d;
+  }
+  guardarAppUrl(){
+    const u=(this.state.appUrlInput||"").trim();
+    try{ localStorage.setItem(APPKEY,u); }catch(e){}
+    this.setState({appUrl:u,accOk:true,accMsg:u?"Enlace guardado: cópialo y compártelo aparte del código.":"Enlace borrado."});
+  }
+  guardarAccesos(list){
+    // solo el equipo del administrador conserva la lista; en los demás no se guarda
+    // ninguna contraseña, ni en memoria ni en el navegador
+    if(this.state.admin){ try{ localStorage.setItem(ACCKEY, JSON.stringify(list)); }catch(e){} }
+    else { try{ localStorage.removeItem(ACCKEY); }catch(e){} }
+    this.setState({accesos: this.state.admin ? list : list.map(u=>({nombre:u.nombre,correo:u.correo,activo:u.activo,clave:""}))});
+  }
+  async confirmar(a,accion,exito){
+    const ok=await this.empujarGet({usuario:{nombre:a.nombre,correo:a.correo,clave:a.clave,activo:a.activo!==false}});
+    let enHoja=!this.state.url;
+    if(ok && this.state.url){
+      const lista=await this.traerUsuarios();
+      enHoja=!!(lista && lista.some(x=>x.correo===a.correo));
+      if(enHoja){
+        const cel=a.celular||"";
+        if(cel) this.guardarAccesos((this.state.accesos||[]).map(x=>x.correo===a.correo?{...x,celular:cel}:x));
+      }
+    }
+    if(!enHoja){
+      const base=this.state.accesos||[];
+      this.guardarAccesos(base.some(x=>x.correo===a.correo)
+        ? base.map(x=>x.correo===a.correo?{...x,...a,pend:true}:x) : [{...a,pend:true},...base]);
+    }
+    this.setState(ok&&enHoja?{accOk:true,accMsg:exito}
+      :{accOk:false,accMsg:"No se pudo escribir en la hoja «Usuarios». Revisa la conexión y toca «Reintentar envío»."});
+    return ok&&enHoja;
+  }
+  crearAcceso(){
+    const nom=(this.state.nuevoNombre||"").trim();
+    const correo=(this.state.nuevoCorreo||"").trim().toLowerCase();
+    let clave=(this.state.nuevaClave||"").replace(/\D/g,"");
+    if(!nom){ this.setState({accMsg:"Escribe el nombre de la persona.",accOk:false}); return; }
+    if(correo.indexOf("@")<1){ this.setState({accMsg:"Escribe un correo válido.",accOk:false}); return; }
+    if((this.state.accesos||[]).some(a=>a.correo===correo)){ this.setState({accMsg:"Ese correo ya está en la lista.",accOk:false}); return; }
+    if(!clave) clave=String(Math.floor(100000+Math.random()*900000));
+    if(clave.length!==6){ this.setState({accMsg:"La contraseña debe tener 6 números.",accOk:false}); return; }
+    const a={nombre:nom,correo,clave,activo:true,celular:(this.state.nuevoCel||"").replace(/\D/g,""),pend:true};
+    this.guardarAccesos([a,...(this.state.accesos||[])]);
+    this.setState({nuevoNombre:"",nuevoCel:"",nuevoCorreo:"",nuevaClave:"",accOk:true,accMsg:"Guardando en la hoja «Usuarios»…"});
+    this.confirmar(a,"crear","Usuario creado: "+nom+" · contraseña "+clave+". Envíasela con el botón WA.");
+  }
+  reintentar(correo){
+    const a=(this.state.accesos||[]).find(x=>x.correo===correo); if(!a) return;
+    this.setState({accOk:true,accMsg:"Reintentando el envío…"});
+    this.confirmar(a,"crear","Usuario "+a.nombre+" ya está en la hoja ✓");
+  }
+  alternarAcceso(correo){
+    const list=(this.state.accesos||[]).map(a=>a.correo===correo?{...a,activo:!a.activo}:a);
+    const a=list.find(x=>x.correo===correo);
+    this.guardarAccesos(list);
+    this.setState({accOk:true,accMsg:(a.activo?"Reactivando…":"Bloqueando…")});
+    this.confirmar(a,"cambiar",(a.activo?"Acceso reactivado para ":"Acceso bloqueado para ")+a.nombre+".");
+  }
+  nuevaClaveDe(correo){
+    const a=(this.state.accesos||[]).find(x=>x.correo===correo); if(!a) return;
+    const clave=String(Math.floor(100000+Math.random()*900000));
+    if(!confirm("¿Generar una contraseña nueva para "+a.nombre+"?\n\nLa anterior deja de funcionar.")) return;
+    const upd={...a,clave};
+    this.guardarAccesos((this.state.accesos||[]).map(x=>x.correo===correo?upd:x));
+    this.setState({accOk:true,accMsg:"Cambiando la contraseña…"});
+    this.confirmar(upd,"cambiar","Nueva contraseña de "+a.nombre+": "+clave+". Envíasela con el botón WA.");
+  }
+  async eliminarAcceso(correo){
+    const a=(this.state.accesos||[]).find(x=>x.correo===correo); if(!a) return;
+    if(!confirm("¿Eliminar a "+a.nombre+" de la lista de usuarios?\n\nSe borra su fila de la hoja «Usuarios» y no podrá entrar.")) return;
+    this.setState({accOk:true,accMsg:"Eliminando de la hoja…"});
+    const ok=await this.empujarGet({usuario:{correo:a.correo,borrar:true}});
+    if(ok||!this.state.url) this.guardarAccesos((this.state.accesos||[]).filter(x=>x.correo!==correo));
+    this.setState(ok||!this.state.url?{accOk:false,accMsg:"Usuario eliminado · "+a.nombre}
+      :{accOk:false,accMsg:"No se pudo borrar la fila en la hoja. Vuelve a intentarlo con conexión."});
+  }
+  textoAcceso(a){
+    return "Hola "+String(a.nombre||"").split(" ")[0]+" \ud83d\udc4b\n\n"+
+      "Te comparto tu acceso a la app de Carnet de Sanidad:\n\n"+
+      "Correo: "+a.correo+"\n"+
+      "Contraseña: "+a.clave+"\n\n"+
+      "Abre la app e ingresa con tu correo y esos 6 números.\n\n"+
+      "Recuerda que es personal e intransferible.";
+  }
+
+  async entrar(){
+    const correo=(this.state.correoInput||"").trim().toLowerCase();
+    const clave=(this.state.paseInput||"").replace(/\D/g,"");
+    if(!correo||correo.indexOf("@")<0){ this.setState({puertaMsg:"Escribe tu correo completo.",puertaOk:false}); return; }
+    if(clave.length!==6){ this.setState({puertaMsg:"La contraseña son 6 números.",puertaOk:false}); return; }
+    const u=(this.state.puertaUrl||"").trim();
+    if(u && u!==this.state.url){ try{ localStorage.setItem(URLKEY,u); }catch(e){} this.setState({url:u}); }
+    this.setState({entrando:true,puertaOk:true,puertaMsg:"Verificando en la hoja de usuarios…"});
+    const lista=await this.traerUsuarios();
+    this.setState({entrando:false});
+    if(lista===null){ this.setState({puertaMsg:"No se pudo leer la hoja de usuarios. Revisa tu conexión a internet.",puertaOk:false}); return; }
+    const p=lista.find(x=>x.correo===correo);
+    if(!p){ this.setState({puertaMsg:"Ese correo no está en la lista de usuarios autorizados.",puertaOk:false}); return; }
+    if(!p.activo){ this.setState({puertaMsg:"Tu acceso está bloqueado. Comunícate con el administrador.",puertaOk:false}); return; }
+    if(String(p.clave)!==clave){ this.setState({puertaMsg:"Contraseña incorrecta.",puertaOk:false}); return; }
+    const primer=String(p.nombre||correo).trim().split(/\s+/).filter(Boolean).slice(0,2).join(" ");
+    this.setState({sesion:{nombre:p.nombre||correo,correo:p.correo},correoInput:"",paseInput:"",puertaMsg:"",
+      bienvenida:"Bienvenido "+primer}, ()=>this.abrirDatos());
+    try{ sessionStorage.setItem(PASEKEY, JSON.stringify({nombre:p.nombre||correo,correo:p.correo})); }catch(e){}
+    setTimeout(()=>this.setState({bienvenida:""}),4500);
+  }
+  // la lista de personas autorizadas vive en la pestaña «Usuarios» de la hoja
+  async traerUsuarios(){
+    const url=this.state.url; if(!url) return null;
+    try{
+      const r=await fetch(url+(url.indexOf("?")>=0?"&":"?")+"usuarios=1&t="+Date.now());
+      const j=await r.json();
+      if(!j || !j.usuarios) return null;
+      const lista=j.usuarios.map(x=>({nombre:String(x.nombre||"").trim(),correo:String(x.correo||"").trim().toLowerCase(),
+        clave:String(x.clave||"").replace(/\D/g,""),activo:x.activo!==false}));
+      this.guardarAccesos(lista);
+      return lista;
+    }catch(e){ return null; }
+  }
+  entrarAdmin(){ this.setState({adminAbierto:true,adminClave:"",puertaMsg:""}); }
+  confirmarAdmin(){
+    const p=String(this.state.adminClave||"").trim();
+    if(!p) return;
+    if(p===PIN){
+      this.setState({adminAbierto:false,adminClave:""});
+      try{ sessionStorage.setItem(ADMKEY,"1"); }catch(e){}
+      const u=(this.state.puertaUrl||"").trim();
+      if(u && u!==this.state.url){ try{ localStorage.setItem(URLKEY,u); }catch(e){} }
+      this.setState({admin:true,view:"accesos",puertaMsg:"",bienvenida:"Bienvenido Administrador",...(u?{url:u}:{})},()=>this.abrirDatos());
+      setTimeout(()=>this.setState({bienvenida:""}),4500);
+    }
+    else this.setState({puertaMsg:"Clave incorrecta.",puertaOk:false,adminClave:""});
+  }
+  guardarTienda(){
+    const t=(this.state.tiendaInput||"").trim()||"Tienda Central";
+    try{ localStorage.setItem(TIENDAKEY,t); }catch(e){}
+    this.setState({tienda:t,tiendaInput:t});
+    // el título viaja en la misma hoja: así laptop y celular muestran el mismo nombre
+    this.empujarGet({dni:"CFGTIENDA",nombre:t,area:"CONFIG",manip:false,celular:"",emision:this.iso(new Date()),vencimiento:""});
+  }
+  mensajeWA(nom,d){
+    const cap=w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();
+    const s=String(nom).trim();
+    let nombre;
+    if(s.indexOf(",")>=0){
+      const ap=s.split(",")[0].trim().split(/\s+/).filter(Boolean);
+      const nm=s.split(",")[1].trim().split(/\s+/).filter(Boolean);
+      nombre=[nm[0],ap[0]].filter(Boolean).map(cap).join(" ");
+    }else{
+      // formato "Apellidos Nombre": el nombre de pila va al final
+      const p=s.split(/\s+/).filter(Boolean);
+      nombre=p.length>1?[p[p.length-1],p[0]].map(cap).join(" "):p.map(cap).join(" ");
+    }
+    const cuando = isNaN(d) ? "está por vencer"
+      : d<0 ? "venció hace "+(-d)+" día"+(-d===1?"":"s")
+      : d===0 ? "vence hoy"
+      : "vence en "+d+" día"+(d===1?"":"s");
+    return "Hola "+nombre+" 👋\n\nTe informo que tu carnet de sanidad "+cuando+
+      ". Por favor coordina con tu Jefe inmediato la renovación 📅\n\n"+
+      "Y si ya lo tramitaste y lo tienes contigo, no olvides entregar el carnet físico 🙏\n\n"+
+      "¡Contamos contigo! 💪";
+  }
+  async copiarTexto(txt){
+    const listo=ok=>{ this.setState({script:ok?"Código copiado ✓":"Selecciona el código y copia con Ctrl+C"});
+      setTimeout(()=>this.setState({script:"Copiar código"}),2600); };
+    try{ if(navigator.clipboard&&window.isSecureContext){ await navigator.clipboard.writeText(txt); return listo(true); } }catch(e){}
+    try{
+      const ta=document.createElement("textarea");
+      ta.value=txt; ta.setAttribute("readonly",""); ta.style.cssText="position:fixed;top:0;left:0;width:1px;height:1px;opacity:0";
+      document.body.appendChild(ta); ta.focus(); ta.select(); ta.setSelectionRange(0,txt.length);
+      const ok=document.execCommand("copy"); ta.remove();
+      if(ok) return listo(true);
+    }catch(e){}
+    // último recurso: deja el código seleccionado para copiarlo a mano
+    const el=this._codigoRef&&this._codigoRef.current;
+    if(el){ const r=document.createRange(); r.selectNodeContents(el); const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+    listo(false);
+  }
+  bajarXlsx(rows,archivo,hoja){
+    const esc=v=>String(v==null?"":v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g,"");
+    const col=i=>{let s="";i++;while(i>0){const m=(i-1)%26;s=String.fromCharCode(65+m)+s;i=Math.floor((i-1)/26);}return s;};
+    const anchos=rows[0].map((_,c)=>Math.min(48,Math.max(10,...rows.map(r=>String(r[c]==null?"":r[c]).length+2))));
+    const sheet='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
+      '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'+
+      '<sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>'+
+      '<cols>'+anchos.map((w,i)=>'<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+w+'" customWidth="1"/>').join("")+'</cols><sheetData>'+
+      rows.map((r,ri)=>'<row r="'+(ri+1)+'">'+r.map((v,ci)=>'<c r="'+col(ci)+(ri+1)+'" t="inlineStr"'+(ri===0?' s="1"':'')+'><is><t xml:space="preserve">'+esc(v)+'</t></is></c>').join("")+'</row>').join("")+
+      '</sheetData><autoFilter ref="A1:'+col(rows[0].length-1)+rows.length+'"/></worksheet>';
+    const files={
+      "[Content_Types].xml":'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>',
+      "_rels/.rels":'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>',
+      "xl/workbook.xml":'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="'+esc(hoja)+'" sheetId="1" r:id="rId1"/></sheets><definedNames><definedName name="_xlnm._FilterDatabase" localSheetId="0" hidden="1">\''+esc(hoja)+'\'!$A$1:$'+col(rows[0].length-1)+'$'+rows.length+'</definedName></definedNames></workbook>',
+      "xl/_rels/workbook.xml.rels":'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>',
+      "xl/styles.xml":'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FFFFFFFF"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F6FEB"/></patternFill></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf/></cellStyleXfs><cellXfs count="2"><xf/><xf fontId="1" fillId="2" applyFont="1" applyFill="1"/></cellXfs></styleSheet>',
+      "xl/worksheets/sheet1.xml":sheet
+    };
+    const enc=new TextEncoder();
+    const T=new Uint32Array(256); for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;T[n]=c>>>0;}
+    const crc=b=>{let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=T[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;};
+    const partes=[], central=[]; let off=0;
+    const u16=v=>[v&255,(v>>8)&255], u32=v=>[v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255];
+    for(const [nom,txt] of Object.entries(files)){
+      const n=enc.encode(nom), d=enc.encode(txt), c=crc(d);
+      const loc=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(c),...u32(d.length),...u32(d.length),...u16(n.length),...u16(0)]);
+      partes.push(loc,n,d);
+      central.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0x21),...u32(c),...u32(d.length),...u32(d.length),...u16(n.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off)]),n);
+      off+=loc.length+n.length+d.length;
+    }
+    const tam=central.reduce((a,b)=>a+b.length,0), cnt=Object.keys(files).length;
+    const fin=new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(cnt),...u16(cnt),...u32(tam),...u32(off),...u16(0)]);
+    const blob=new Blob([...partes,...central,fin],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=archivo;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  }
+  aFile(dataUrl,nombre){
+    const [cab,b64]=String(dataUrl).split(",");
+    const tipo=(cab.match(/data:([^;]+)/)||[])[1]||"image/jpeg";
+    const bin=atob(b64), u=new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i);
+    return new File([u],nombre,{type:tipo});
+  }
+  // las fotos guardadas viven en Drive: se descargan antes de compartir
+  async aArchivo(src,nombre){
+    const s=String(src||"");
+    if(!s) return null;
+    if(s.indexOf("data:")===0){ try{ return this.aFile(s,nombre); }catch(e){ return null; } }
+    const id=(s.match(/[-\w]{25,}/)||[])[0];
+    const urls=id?["https://lh3.googleusercontent.com/d/"+id+"=w1400",
+                   "https://drive.google.com/thumbnail?id="+id+"&sz=w1400",
+                   "https://drive.google.com/uc?export=download&id="+id]:[s];
+    for(const u of urls){
+      try{
+        const res=await fetch(u,{mode:"cors"});
+        if(!res.ok) continue;
+        const b=await res.blob();
+        if(!b || b.size<600 || String(b.type).indexOf("image")<0) continue;
+        return new File([b],nombre,{type:b.type||"image/jpeg"});
+      }catch(e){}
+    }
+    return null;
+  }
+  async compartir(r,texto){
+    const dni=String(r.dni||"").trim();
+    const limpio=String(r.nombre||"carnet").replace(/[\\/:*?"<>|]/g," ").replace(/\s+/g," ").trim();
+    const base=dni+(limpio?" ("+limpio+")":"");
+    this.setState({compartiendo:dni});
+    const crudas=[[r.fotoFrente,"-frente"],[r.fotoReverso,"-reverso"]].filter(x=>x[0]);
+    const files=[];
+    for(const [src,suf] of crudas){
+      const f=await this.aArchivo(src,base+suf+".jpg");
+      if(f) files.push(f);
+    }
+    this.setState({compartiendo:null});
+    const cel=String(r.celular||"").replace(/\D/g,"");
+    try{
+      if(files.length && navigator.canShare && navigator.canShare({files})){
+        await navigator.share({files,text:texto});
+        return;
+      }
+      if(navigator.share){
+        await navigator.share({text:texto});
+        if(crudas.length && !files.length)
+          this.setState({sync:"error",syncMsg:"Se compartió el mensaje sin la foto: ábrela en «Ver foto» y descárgala para adjuntarla."});
+        return;
+      }
+    }catch(e){ if(e && e.name==="AbortError") return; }
+    // solo en equipos sin compartir del sistema (PC): descarga la foto y abre WhatsApp Web
+    files.forEach(f=>{ const a=document.createElement("a"); a.href=URL.createObjectURL(f); a.download=f.name;
+      document.body.appendChild(a); a.click(); a.remove(); });
+    window.open(cel?("https://wa.me/51"+cel+"?text="+encodeURIComponent(texto)):("https://wa.me/?text="+encodeURIComponent(texto)),"_blank","noopener");
+  }
+  // el snapshot local guarda datos sin imágenes: las fotos quedan solo en las últimas vistas
+  persist(regs){
+    const enlace=v=>/^http/.test(String(v||""))?v:null;
+    const ligero=regs.map(r=>({...r,fotoFrente:enlace(r.fotoFrente),fotoReverso:enlace(r.fotoReverso),archivoPdf:enlace(r.archivoPdf)}));
+    try{ localStorage.setItem(STORE, JSON.stringify(ligero)); }
+    catch(e){ try{ localStorage.setItem(STORE, JSON.stringify(ligero.map(r=>({...r})))); }catch(e2){} }
+  }
+  async traerFotos(dni){
+    const url=this.state.url; if(!url) return null;
+    try{
+      const r=await fetch(url+(url.indexOf("?")>=0?"&":"?")+"foto="+encodeURIComponent(dni)+"&t="+Date.now());
+      const j=await r.json();
+      const f=/^(data:|http)/.test(String(j.fotoFrente||""))?j.fotoFrente:null;
+      const v=/^(data:|http)/.test(String(j.fotoReverso||""))?j.fotoReverso:null;
+      const p=/^http/.test(String(j.archivoPdf||""))?j.archivoPdf:null;
+      if(f||v||p) this.setState(s=>({regs:s.regs.map(x=>String(x.dni)===String(dni)?{...x,fotoFrente:f||x.fotoFrente,fotoReverso:v||x.fotoReverso,archivoPdf:p||x.archivoPdf}:x)}));
+      return {frente:f,reverso:v,pdf:p};
+    }catch(e){ return null; }
+  }
+  // el PDF local (aún sin subir) se muestra con un enlace temporal del navegador
+  pdfVista(src){
+    const s=String(src||""); if(!s) return "";
+    if(s.indexOf("data:")===0){
+      this._pdfCache=this._pdfCache||{};
+      if(!this._pdfCache[s.length+s.slice(-40)]){ try{ this._pdfCache[s.length+s.slice(-40)]=URL.createObjectURL(this.aFile(s,"carnet.pdf")); }catch(e){ return ""; } }
+      return this._pdfCache[s.length+s.slice(-40)];
+    }
+    return s;
+  }
+  async abrirFotos(r,nom,dias){
+    this.setState({verFoto:{nombre:nom,frente:r.fotoFrente,reverso:r.fotoReverso,pdf:r.archivoPdf||null,dni:r.dni,
+      cargando:!r.fotoFrente&&!r.fotoReverso&&!r.archivoPdf&&!!this.state.url,
+      tieneFotos:!!(r.fotoFrente||r.fotoReverso||r.archivoPdf),
+      compartir:()=>this.compartir(this.state.regs.find(x=>String(x.dni)===String(r.dni))||r,this.mensajeWA(nom,dias)),
+      registrar:()=>this.setState({view:"registro",modo:"renovacion",msg:"",verFoto:null,
+        form:{...VACIO,...(this.state.regs.find(x=>String(x.dni)===String(r.dni))||r)}}),
+      waLink:String(r.celular||"").replace(/\D/g,"")?("https://wa.me/51"+String(r.celular).replace(/\D/g,"")+"?text="+encodeURIComponent(this.mensajeWA(nom,dias))):"#"}});
+    if(!r.fotoFrente&&!r.fotoReverso&&!r.archivoPdf&&this.state.url){
+      const got=await this.traerFotos(r.dni);
+      this.setState(s=>s.verFoto&&String(s.verFoto.dni)===String(r.dni)
+        ?{verFoto:{...s.verFoto,cargando:false,frente:got&&got.frente,reverso:got&&got.reverso,pdf:got&&got.pdf,tieneFotos:!!(got&&(got.frente||got.reverso||got.pdf))}}:{});
+    }
+  }
+  addMeses(iso,m){ const s=this.norm(iso); if(!s) return "";
+    const [y,mo,d]=s.split("-").map(Number);
+    const t=new Date(y,mo-1+m,d);
+    if(t.getDate()!==d) t.setDate(0);
+    return this.iso(new Date(t.getTime()-t.getTimezoneOffset()*60000)); }
+  setF(k,v){ this.setState(s=>{
+    const form={...s.form,[k]:v};
+    if(k==="emision"||k==="manip") form.vencimiento=this.addMeses(form.emision, form.manip?6:12);
+    return {form,msg:""};
+  }); }
+
+  async jalar(silencioso){
+    const url=this.state.url; if(!url) return;
+    if(!silencioso){
+      const pend=(this.state.regs||[]).filter(r=>r.pend);
+      for(const r of pend){
+        const {pend:_p,fotoFrente,fotoReverso,archivoPdf,...limpio}=r;
+        const ok=await this.empujarGet(limpio);
+        if(!ok) continue;
+        const f1=await this.subirFoto(r.dni,"f1",fotoFrente,"Registros",r.nombre);
+        const f2=await this.subirFoto(r.dni,"f2",fotoReverso,"Registros",r.nombre);
+        if(f1&&f2){
+          const list=(this.state.regs||[]).map(x=>String(x.dni)===String(r.dni)?{...x,pend:false}:x);
+          this.persist(list); this.setState({regs:list});
+        }
+      }
+    }
+    if(!silencioso) this.setState({sync:"pendiente",syncMsg:"Leyendo la hoja…"});
+    try{
+      const r = await fetch(url+(url.indexOf("?")>=0?"&":"?")+"t="+Date.now());
+      const j = await r.json();
+      if(!j || !j.regs) throw new Error("respuesta inesperada");
+      const scriptViejo = !j.version || Number(j.version) < VER_MIN;
+      const verHoja = j.version ? String(j.version) : "";
+      const esAcc=r=>/^ACC/i.test(String(r.dni||"").trim());
+      const esDel=r=>/^DEL/i.test(String(r.dni||"").trim());
+      const esCfg=r=>/^CFG/i.test(String(r.dni||"").trim());
+      const cfgT=j.regs.find(r=>String(r.dni||"").trim().toUpperCase()==="CFGTIENDA");
+      const tiendaRemota=cfgT?String(cfgT.nombre||"").trim():"";
+      if(tiendaRemota && tiendaRemota!==this.state.tienda){
+        try{ localStorage.setItem(TIENDAKEY,tiendaRemota); }catch(e){}
+      }
+      const previosUsr=this.state.accesos||[];
+      const accs=(j.usuarios||[]).map(u=>{
+        const ant=previosUsr.find(x=>x.correo===String(u.correo||"").trim().toLowerCase())||{};
+        return {nombre:String(u.nombre||"").trim(), correo:String(u.correo||"").trim().toLowerCase(),
+          clave:String(u.clave||"").replace(/\D/g,""), activo:u.activo!==false, celular:ant.celular||""};
+      });
+      const pend=previosUsr.filter(a=>a.pend&&!accs.some(x=>x.correo===a.correo));
+      const accFin=this.state.admin?[...pend,...accs]:accs.map(u=>({nombre:u.nombre,correo:u.correo,activo:u.activo,clave:""}));
+      if(this.state.admin){ try{ localStorage.setItem(ACCKEY, JSON.stringify(accFin)); }catch(e){} }
+      const accDiag="La hoja «Usuarios» respondió "+accs.length+" usuario(s) · "+new Date().toLocaleTimeString("es-PE",{hour:"2-digit",minute:"2-digit"});
+      if(this.state.admin){ try{ localStorage.setItem(ACCKEY, JSON.stringify(accFin)); }catch(e){} }
+      const previos={}; this.state.regs.forEach(x=>{ previos[String(x.dni).trim()]=x; });
+      const prevBorr={}; (this.state.borrados||[]).forEach(x=>{ prevBorr[String(x.dni).trim()]=x; });
+      const fuenteDel=(j.eliminados&&j.eliminados.length)?j.eliminados:j.regs.filter(esDel);
+      const borr=fuenteDel.map(r=>{
+        const d=String(r.dni).trim().replace(/^DEL/i,"");
+        const p=prevBorr[d]||{};
+        return {dni:d,nombre:String(r.nombre||"").trim(),area:String(r.area||"").trim()||AREAS[0],
+          manip:r.manip===true||String(r.manip).toUpperCase().indexOf("S")===0,
+          celular:String(r.celular||"").trim(),emision:this.norm(r.emision),vencimiento:this.norm(r.vencimiento),
+          hayFotoRemota:!!(r.tieneFrente||r.tieneReverso),
+          fotoFrente:/^(data:|http)/.test(String(r.fotoFrente||""))?r.fotoFrente:(p.fotoFrente||null),
+          fotoReverso:/^(data:|http)/.test(String(r.fotoReverso||""))?r.fotoReverso:(p.fotoReverso||null),
+          archivoPdf:/^http/.test(String(r.archivoPdf||""))?r.archivoPdf:(p.archivoPdf||null),
+          eliminadoPor:String(r.eliminadoPor||"").trim()||p.eliminadoPor||"",
+          borradoEl:this.norm(r.eliminadoEl)||p.borradoEl||""};
+      });
+      this.persistBorrados(borr);
+      let limpios=j.regs.filter(r=>!esAcc(r)&&!esDel(r)&&!esCfg(r)).map(r=>({dni:String(r.dni||"").trim(),nombre:String(r.nombre||"").trim(),
+        area:String(r.area||"").trim()||AREAS[0],manip:r.manip===true||String(r.manip).toUpperCase().indexOf("S")===0,
+        celular:String(r.celular||"").trim(),emision:this.norm(r.emision),vencimiento:this.norm(r.vencimiento),
+        // las imágenes no viajan en cada sync: se piden al abrir el visor
+        hayFotoRemota:!!(r.tieneFrente||r.tieneReverso),
+        fotoFrente:/^(data:|http)/.test(String(r.fotoFrente||""))?r.fotoFrente:((previos[String(r.dni||"").trim()]||{}).fotoFrente||null),
+        fotoReverso:/^(data:|http)/.test(String(r.fotoReverso||""))?r.fotoReverso:((previos[String(r.dni||"").trim()]||{}).fotoReverso||null),
+        archivoPdf:/^http/.test(String(r.archivoPdf||""))?r.archivoPdf:((previos[String(r.dni||"").trim()]||{}).archivoPdf||null)}));
+      const pendReg=(this.state.regs||[]).filter(r=>r.pend && !limpios.some(x=>String(x.dni)===String(r.dni)));
+      limpios=[...pendReg,...limpios];
+      this.persist(limpios);
+      const tiendaEstado = tiendaRemota ? {tienda:tiendaRemota, tiendaInput:tiendaRemota} : {};
+      this.setState({scriptViejo, verHoja, ...tiendaEstado, accDiag, regs:limpios, accesos:accFin, borrados:borr, sync:"ok", syncMsg:"Sincronizada · "+limpios.length+" registros · "+new Date().toLocaleTimeString("es-PE",{hour:"2-digit",minute:"2-digit"})});
+    }catch(e){
+      this.setState({sync:"error", syncMsg:"No se pudo leer la hoja. Revisa que el Web App esté publicado para «cualquier persona»."});
+    }
+  }
+  // Los guardados pequenos (accesos, configuracion, registros sin foto) van por GET:
+  // el POST se bloquea cuando la app se abre desde un archivo descargado.
+  // las fotos son muy largas para un solo envío: viajan en partes de 4.000 caracteres
+  // pregunta a la hoja si el enlace de Drive ya quedó escrito (confirmación real de la subida)
+  async enlaceEnHoja(dni,campo,hoja){
+    const url=this.state.url; if(!url) return null;
+    try{
+      const q=url+(url.indexOf("?")>=0?"&":"?")+"foto="+encodeURIComponent(dni)+
+        "&hoja="+encodeURIComponent(hoja||"Registros")+"&t="+Date.now();
+      const j=await (await fetch(q)).json();
+      const col=campo==="pdf"?j.colPdf:campo==="f2"?j.colF2:j.colF1;
+      if(col===-1 && campo!=="pdf") return "SIN_COLUMNA";
+      if(col===undefined && (this.state.scriptViejo||campo==="pdf")) return "SCRIPT_VIEJO";
+      const v=String((campo==="pdf"?j.archivoPdf:campo==="f2"?j.fotoReverso:j.fotoFrente)||"");
+      return /^http/.test(v)?v:null;
+    }catch(e){ return null; }
+  }
+  async esperarEnlace(dni,campo,hoja,intentos){
+    for(let i=0;i<(intentos||8);i++){
+      await new Promise(r=>setTimeout(r,i?2000:1200));
+      const v=await this.enlaceEnHoja(dni,campo,hoja);
+      if(v==="SIN_COLUMNA"||v==="SCRIPT_VIEJO") return v;
+      if(v) return v;
+    }
+    return null;
+  }
+  async subirFoto(dni,campo,dataUrl,hoja,nombre){
+    if(!dataUrl || String(dataUrl).indexOf("data:")!==0) return true;
+    if(!this.state.url) return true;
+    const esPdf=campo==="pdf";
+    const lado=esPdf?"archivo PDF":campo==="f2"?"foto del reverso":"foto del frente";
+    const hj=hoja||"Registros";
+    const meta={dni:String(dni),nombre:String(nombre||""),campo,hoja:hj};
+    // 1) intento en un solo envío por formulario: no hay límite de tamaño ni partes que se pierdan
+    this.setState({sync:"pendiente",syncMsg:"Subiendo "+lado+" a Drive…"});
+    await this.empujar({foto:{...meta,i:0,n:1,datos:dataUrl}});
+    let enlace=await this.esperarEnlace(dni,campo,hj,7);
+    if(enlace==="SCRIPT_VIEJO"){
+      this.setState({sync:"error",syncMsg:"La hoja tiene el Apps Script v"+(this.state.verHoja||"antiguo")+": no puede guardar fotos en Drive. Pega el código v"+VER_MIN+" desde «Sheets y alertas» y publica una versión NUEVA."});
+      return false;
+    }
+    if(enlace==="SIN_COLUMNA"){
+      this.setState({sync:"error",syncMsg:"Tu hoja no tiene una columna reconocible para la "+lado+". Renómbrala como «FOTO FRENTE» y «FOTO REVERSO» (o pega el Apps Script v17, que ya acepta «FOTO CARNET FRONTAL / ANVERSO»)."});
+      return false;
+    }
+    if(!enlace && esPdf && dataUrl.length>1500000){
+      this.setState({sync:"error",syncMsg:"El archivo PDF no llegó a Drive. Toca ↻ para reintentar con buena conexión."});
+      return false;
+    }
+    if(!enlace){
+      // 2) respaldo por partes (equipos donde el navegador bloquea el envío grande)
+      const T=5500, n=Math.ceil(dataUrl.length/T);
+      for(let i=0;i<n;i++){
+        const ok=await this.empujarGet({foto:{...meta,i,n,datos:dataUrl.slice(i*T,(i+1)*T)}});
+        if(!ok){ this.setState({sync:"error",syncMsg:"La "+lado+" no se pudo subir a Drive. Toca ↻ para reintentar."}); return false; }
+        this.setState({sync:"pendiente",syncMsg:"Subiendo "+lado+" a Drive… "+Math.round((i+1)*100/n)+"%"});
+      }
+      enlace=await this.esperarEnlace(dni,campo,hj,8);
+      if(enlace==="SIN_COLUMNA"||enlace==="SCRIPT_VIEJO") enlace=null;
+    }
+    if(!enlace){
+      this.setState({sync:"error",syncMsg:"La "+lado+" no llegó a Drive. Toca ↻ para reintentar."});
+      return false;
+    }
+    // el enlace ya está en la hoja: se guarda también aquí para que la vea cualquier equipo
+    const clave=esPdf?"archivoPdf":campo==="f2"?"fotoReverso":"fotoFrente";
+    const list=(this.state.regs||[]).map(x=>String(x.dni)===String(dni)?{...x,[clave]:enlace,hayFotoRemota:true}:x);
+    this.persist(list);
+    this.setState({regs:list,sync:"ok",syncMsg:(esPdf?"Archivo PDF guardado":lado.charAt(0).toUpperCase()+lado.slice(1)+" guardada")+" en Drive ✓"});
+    return true;
+  }
+  async empujarGet(payload){
+    const url=this.state.url; if(!url) return true;
+    const q=url+(url.indexOf("?")>=0?"&":"?")+"guardar="+encodeURIComponent(JSON.stringify(payload));
+    if(q.length>9000) return this.empujar(payload);
+    try{
+      const r=await fetch(q,{method:"GET"});
+      const t=await r.text();
+      // el script antiguo responde {"ok":true,...} a cualquier parámetro sin guardar nada:
+      // solo el script nuevo devuelve "guardado"
+      if(!r.ok || t.indexOf('"guardado"')<0){
+        this.setState({sync:"error",scriptViejo:true,
+          syncMsg:"Tu hoja tiene el Apps Script antiguo: no guardó nada. Ve a «Sheets y alertas» › Copiar código, pégalo en Extensiones › Apps Script reemplazando todo, guarda y publica una versión NUEVA."});
+        return false;
+      }
+      this.setState({sync:"ok",syncMsg:"Guardado en la hoja · "+new Date().toLocaleTimeString("es-PE",{hour:"2-digit",minute:"2-digit"})});
+      return true;
+    }catch(e){ this.setState({sync:"error",syncMsg:"No se pudo guardar en la hoja: revisa la conexión."}); return false; }
+  }
+  // Envio grande (registros con foto): va como formulario a un marco oculto.
+  // El navegador no lo bloquea aunque la app se abra como archivo descargado.
+  empujar(payload){
+    const url=this.state.url; if(!url) return Promise.resolve(true);
+    return new Promise(res=>{
+      try{
+        const nom="env"+Date.now()+Math.floor(Math.random()*1000);
+        const marco=document.createElement("iframe");
+        marco.name=nom; marco.style.display="none";
+        document.body.appendChild(marco);
+        const f=document.createElement("form");
+        f.method="POST"; f.action=url; f.target=nom; f.style.display="none";
+        const c=document.createElement("input");
+        c.type="hidden"; c.name="guardar"; c.value=JSON.stringify(payload);
+        f.appendChild(c); document.body.appendChild(f);
+        let listo=false, cargas=0;
+        const fin=ok=>{ if(listo) return; listo=true;
+          setTimeout(()=>{ try{ f.remove(); marco.remove(); }catch(e){} },1500);
+          this.setState(ok?{sync:"ok",syncMsg:"Guardado en la hoja · "+new Date().toLocaleTimeString("es-PE",{hour:"2-digit",minute:"2-digit"})}
+            :{sync:"error",syncMsg:"Guardado en este equipo; el envío a la hoja tardó demasiado."});
+          res(ok); };
+        // el marco dispara un load inicial vacio: solo cuenta el que sigue al envio
+        marco.onload=()=>{ if(++cargas>1) fin(true); };
+        cargas=0; setTimeout(()=>f.submit(),0);
+        setTimeout(()=>fin(false),25000);
+      }catch(e){ this.setState({sync:"error",syncMsg:"Guardado local; falló el envío a la hoja."}); res(false); }
+    });
+  }
+
+  async guardar(){
+    let f=this.state.form;
+    // renovación: si las fotos están solo en Drive, se traen antes de validar
+    if(f.hayFotoRemota&&(!f.fotoFrente||!f.fotoReverso)&&this.state.url&&f.dni){
+      this.setState({msg:"Revisando las fotos guardadas…",msgOk:true});
+      const g=await this.traerFotos(f.dni);
+      if(g){ f={...f,fotoFrente:f.fotoFrente||g.frente||null,fotoReverso:f.fotoReverso||g.reverso||null}; this.setState({form:f}); }
+    }
+    const faltan=[];
+    if(!/^\d{8}$/.test(String(f.dni||"").trim())) faltan.push("DNI (8 dígitos)");
+    if(!String(f.nombre||"").trim()) faltan.push("nombre");
+    if(String(f.celular||"").replace(/\D/g,"").length<9) faltan.push("celular (9 dígitos)");
+    if(!f.area) faltan.push("área");
+    if(typeof f.manip!=="boolean") faltan.push("manipulador");
+    if(!f.emision) faltan.push("fecha de emisión");
+    if(!f.vencimiento) faltan.push("fecha de vencimiento");
+    if(!f.fotoFrente) faltan.push("foto del frente");
+    if(!f.fotoReverso) faltan.push("foto del reverso");
+    if(faltan.length){ this.setState({msg:"Todos los campos son obligatorios. Falta: "+faltan.join(", ")+".",msgOk:false}); return; }
+    const i=this.state.regs.findIndex(r=>r.dni===f.dni);
+    const regs=[...this.state.regs];
+    const nuevo={...f,pend:true};
+    if(i>=0) regs[i]={...regs[i],...nuevo}; else regs.unshift(nuevo);
+    this.persist(regs);
+    this.setState({regs,msgOk:true,msg:(this.state.url?"Guardando en la hoja…":(i>=0?"Renovación registrada":"Carnet registrado")+" ✓"),form:{...VACIO}});
+    if(!this.state.url) return;
+    const {fotoFrente,fotoReverso,archivoPdf,...resto}=f;
+    const enlace=v=>/^http/.test(String(v||""))?String(v):"";
+    const datos={...resto,fotoFrente:enlace(fotoFrente),fotoReverso:enlace(fotoReverso),archivoPdf:enlace(archivoPdf)};
+    const ok=await this.empujarGet(datos);
+    let fotosOk=true;
+    if(ok){
+      fotosOk = await this.subirFoto(f.dni,"f1",fotoFrente,"Registros",f.nombre);
+      fotosOk = (await this.subirFoto(f.dni,"f2",fotoReverso,"Registros",f.nombre)) && fotosOk;
+    }
+    await this.jalar(true);
+    const enHoja=(this.state.regs||[]).some(r=>String(r.dni)===String(f.dni)&&!r.pend);
+    if(enHoja && fotosOk){
+      this.setState({msgOk:true,msg:(i>=0?"Renovación registrada":"Carnet registrado")+" y guardado en la hoja ✓"});
+    }else{
+      // queda pendiente para que ↻ lo reintente con todo y fotos
+      const list=(this.state.regs||[]).map(r=>String(r.dni)===String(f.dni)
+        ?{...r,pend:true,fotoFrente:fotoFrente||r.fotoFrente,fotoReverso:fotoReverso||r.fotoReverso,archivoPdf:archivoPdf||r.archivoPdf}:r);
+      this.persist(list);
+      this.setState({regs:list,msgOk:false,
+        msg:enHoja?"El carnet se guardó, pero la foto no llegó completa. Toca «Sincronizar» (↻) para reintentarla."
+                  :"Se guardó en este equipo, pero aún no aparece en la hoja. Toca «Sincronizar» (↻) para reintentar el envío."});
+    }
+  }
+  eliminarViejo(dni){
+    if(!confirm("¿Eliminar este colaborador del registro?")) return;
+    const regs=this.state.regs.filter(r=>r.dni!==dni);
+    this.persist(regs); this.setState({regs});
+    this.empujarGet({dni,borrar:true});
+  }
+  foto(k,file){
+    if(!file) return;
+    const MAXMB=15;
+    if(k==="archivoPdf"){
+      if(file.size>MAXMB*1024*1024){ this.setState({msg:"El PDF pesa "+(file.size/1048576).toFixed(1)+" MB. El máximo es "+MAXMB+" MB.",msgOk:false}); return; }
+      if(!/pdf/i.test(file.type||"") && !/\.pdf$/i.test(file.name||"")){ this.setState({msg:"El archivo elegido no es un PDF.",msgOk:false}); return; }
+      this._pdfNombre=file.name; this._pdfTam=file.size;
+      const lr=new FileReader();
+      lr.onload=()=>{ let d=String(lr.result||""); if(d.indexOf("data:application/pdf")!==0) d="data:application/pdf;base64,"+d.split(",")[1]; this.setF(k,d); };
+      lr.onerror=()=>this.setState({msg:"No se pudo leer el PDF.",msgOk:false});
+      lr.readAsDataURL(file);
+      return;
+    }
+    if(file.size>MAXMB*1024*1024){ this.setState({msg:"La foto pesa "+(file.size/1048576).toFixed(1)+" MB. El máximo es "+MAXMB+" MB.",msgOk:false}); return; }
+    if(file.type && file.type.indexOf("image")!==0){ this.setState({msg:"El archivo elegido no es una imagen.",msgOk:false}); return; }
+    const img=new Image(), fr=new FileReader();
+    fr.onload=()=>{ img.onload=()=>{
+      // la foto se guarda en Drive: se reduce a un tamaño nítido y liviano (~250 KB)
+      const dibujar=(max,q)=>{
+        const s=Math.min(1,max/Math.max(img.width,img.height));
+        const c=document.createElement("canvas");
+        c.width=Math.round(img.width*s); c.height=Math.round(img.height*s);
+        c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+        return c.toDataURL("image/jpeg",q);
+      };
+      let out=dibujar(1600,0.78);
+      const pasos=[[1400,0.72],[1200,0.68],[1000,0.62],[900,0.58]];
+      for(let i=0;out.length>350000&&i<pasos.length;i++) out=dibujar(pasos[i][0],pasos[i][1]);
+      this.setF(k,out);
+    };
+    img.onerror=()=>this.setState({msg:"No se pudo leer la imagen. Prueba con otra foto (JPG o PNG).",msgOk:false});
+    img.src=fr.result; };
+    fr.readAsDataURL(file);
+  }
+
+  renderVals(){
+    const st=this.state, hoy=new Date(), movil=st.w<820, tabla=st.w>=1200;
+    const rows=st.regs.map(r=>{
+      const e=this.estado(r.vencimiento);
+      const cel=String(r.celular||"").replace(/\D/g,"");
+      const nom=String(r.nombre||"?");
+      return {...r, e, dni:String(r.dni||""), nombre:nom, area:String(r.area||"—"), estadoTexto:e.t, color:e.c, avatarBg:e.bg,
+        iniciales:nom.replace(",","").split(" ").filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase(),
+        manipulador:r.manip?"Sí":"No", manipTexto:r.manip?" · Manipulador":"",
+        celular:String(r.celular||"—"), emision:this.fmt(r.emision), vencimiento:this.fmt(r.vencimiento),
+        waLink:cel?("https://wa.me/51"+cel+"?text="+encodeURIComponent(this.mensajeWA(nom,e.d))):"#",
+        renovar:()=>this.setState({view:"registro",modo:"renovacion",msg:"",form:{...VACIO,...r}}),
+        eliminar:()=>this.eliminar(r.dni),
+        tieneFotos:!!(r.fotoFrente||r.fotoReverso||r.hayFotoRemota),
+        renovarDisplay:"flex", elimDisplay:"flex", habDisplay:"none", habilitar:()=>{},
+        fotoDisplay:"flex",
+        fotoOpacidad:(r.fotoFrente||r.fotoReverso||r.archivoPdf||r.hayFotoRemota)?"1":".42",
+        fotoTitulo:(r.fotoFrente||r.fotoReverso||r.archivoPdf||r.hayFotoRemota)?"Ver fotos del carnet":"Sin foto — toca para agregarla",
+        elimPorDisplay:"none", elimPorTexto:"", purgarDisplay:"none", purgar:()=>{},
+        waFotoDisplay:"none",
+        compartirTexto:String(st.compartiendo||"")===String(r.dni||"")?"Preparando…":"Msj + foto",
+        compartir:async()=>{ if(!r.fotoFrente&&!r.fotoReverso&&this.state.url) await this.traerFotos(r.dni);
+          const act=this.state.regs.find(x=>String(x.dni)===String(r.dni))||r;
+          if(!act.fotoFrente&&!act.fotoReverso){
+            if(confirm("Este carnet aún no tiene foto registrada.\n\n¿Quieres agregarla ahora?"))
+              this.setState({view:"registro",modo:"renovacion",msg:"",form:{...VACIO,...act}});
+            return;
+          }
+          this.compartir(act,this.mensajeWA(nom,e.d)); },
+        verFotos:()=>this.abrirFotos(r,nom,e.d)};
+    }).sort((a,b)=>a.e.d-b.e.d);
+
+    const cnt=k=>rows.filter(r=>r.e.k===k).length;
+    const vencidos=cnt("vencido"), criticos=cnt("critico"), avisos=cnt("aviso"), vigentes=cnt("vigente"), sinFecha=cnt("sinfecha");
+    const go=(v,extra)=>()=>this.setState({view:v,...(extra||{})});
+    const nav=[["panel","Panel","Panel","▤",""],["lista","Lista","Lista","☰",String(rows.length)],["registro","Registrar","Registrar","＋",""],["reporte","Reporte","Reporte","▦",""]];
+    if(st.admin) nav.push(["accesos","Usuarios","Usuarios","◎",String((st.accesos||[]).filter(a=>a.activo).length||"")]);
+    if(st.admin) nav.push(["config","Sheets y alertas","Ajustes","⚙",""]);
+    const titles={panel:["Panel de control","Estado sanitario de la tienda"],lista:["Lista","Busca, filtra por área y renueva"],registro:["Registrar / renovar carnet","Se guarda en la hoja de Google Sheets"],reporte:["Reporte","Listo para imprimir o exportar"],accesos:["Usuarios","Quién puede entrar a la aplicación"],config:["Sheets y alertas","Conexión, fórmulas y correo diario"]};
+
+    const manipRows=rows.filter(r=>r.manip);
+    const manipVenc=manipRows.filter(r=>r.e.k==="vencido").length;
+    const manipOk=manipRows.filter(r=>r.e.k==="vigente").length;
+
+    const porArea=[...new Set(rows.map(r=>r.area))].map(a=>{
+      const rs=rows.filter(r=>r.area===a), n=rs.length;
+      const ok=rs.filter(r=>r.e.k==="vigente").length, bad=rs.filter(r=>r.e.k==="vencido").length, warn=n-ok-bad;
+      return {area:a,resumen:ok+"/"+n,pctOk:(ok/n*100)+"%",pctWarn:(warn/n*100)+"%",pctBad:(bad/n*100)+"%",bad};
+    }).sort((a,b)=>b.bad-a.bad).slice(0,7);
+
+    const q=st.q.toLowerCase();
+    // papelera: registros archivados, con opción de habilitarlos de nuevo
+    const borradosRows=(st.borrados||[]).map(b=>{
+      const nom=String(b.nombre||"?"), cel=String(b.celular||"").replace(/\D/g,"");
+      const dref={...b,dni:"DEL"+b.dni};
+      return {...b, dni:String(b.dni||""), nombre:nom, area:String(b.area||"—"),
+        e:{k:"eliminado",d:99998}, estadoTexto:"Eliminado", color:"#6b7280", avatarBg:"#f3f4f6",
+        iniciales:nom.replace(",","").split(" ").filter(Boolean).slice(0,2).map(w=>w[0]).join("").toUpperCase(),
+        manipulador:b.manip?"Sí":"No", manipTexto:b.manip?" · Manipulador":"",
+        celular:String(b.celular||"—"), emision:this.fmt(b.emision),
+        vencimiento:b.borradoEl?"borrado "+this.fmt(b.borradoEl):"—",
+        waLink:cel?("https://wa.me/51"+cel):"#",
+        fotoDisplay:"flex", fotoOpacidad:(b.fotoFrente||b.fotoReverso||b.archivoPdf||b.hayFotoRemota)?"1":".42",
+        fotoTitulo:"Ver fotos archivadas", waFotoDisplay:"none",
+        purgarDisplay:"flex", purgar:()=>this.purgar(b.dni),
+        elimPorDisplay:"block", elimPorTexto:"Eliminado por: "+(b.eliminadoPor||"sin registro")+(b.borradoEl?" · "+this.fmt(b.borradoEl):""),
+        renovarDisplay:"none", elimDisplay:"none", habDisplay:"flex",
+        habilitar:()=>this.habilitar(b.dni), renovar:()=>{}, eliminar:()=>{}, compartir:()=>{},
+        verFotos:()=>this.abrirFotos(dref,nom,NaN)};
+    });
+    const base = (st.fEstado==="eliminados"&&st.admin)?borradosRows:rows;
+    const filtradas=base.filter(r=>
+      (q===""||r.nombre.toLowerCase().includes(q)||r.dni.includes(q)) &&
+      (st.fArea==="Todas las áreas"||r.area===st.fArea) &&
+      (st.fEstado==="todos"||st.fEstado==="eliminados"||(st.fEstado==="alerta"?(r.e.k==="critico"||r.e.k==="aviso"):r.e.k===st.fEstado)));
+
+    const bq=(st.buscaCol||"").trim().toLowerCase();
+    const colSug=bq?rows.filter(r=>r.nombre.toLowerCase().includes(bq)||r.dni.includes(bq)).slice(0,8).map(r=>({
+      nombre:r.nombre, sub:r.dni+" · "+r.area, iniciales:r.iniciales, avatarBg:r.avatarBg, color:r.color,
+      estadoTexto:r.estadoTexto,
+      pick:()=>{ const o=st.regs.find(x=>String(x.dni)===String(r.dni));
+        this.setState({form:{...VACIO,...(o||{})},buscaCol:"",msg:""}); }
+    })):[];
+
+    const rMap={vencido:"vencido",critico:"critico",aviso:"aviso",vigente:"vigente"};
+    const reporteFiltradas = st.rEstado==="todos"?rows:rows.filter(r=>r.e.k===rMap[st.rEstado]);
+    const rLabels={todos:"Todos los colaboradores",vencido:"VENCIDOS",critico:"POR VENCER 15D",aviso:"AVISO 30D",vigente:"VIGENTES"};
+    const rTab=(id,label)=>({label,bg:st.rEstado===id?"#101318":"#fff",fg:st.rEstado===id?"#fff":"#4b5563",
+      border:st.rEstado===id?"#101318":"#d9dde3",go:()=>this.setState({rEstado:id})});
+
+    const tab=(id,label)=>({label,bg:st.fEstado===id?"#fff":"transparent",fg:st.fEstado===id?"#101318":"#6b7280",go:()=>this.setState({fEstado:id})});
+    const modoTab=(id,label)=>({label,bg:st.modo===id?"#101318":"#fff",fg:st.modo===id?"#fff":"#4b5563",border:st.modo===id?"#101318":"#d9dde3",go:()=>this.setState({modo:id,msg:"",buscaCol:"",form:id==="nuevo"?{...VACIO}:st.form})});
+    const manipTab=(v,label)=>({label,bg:st.form.manip===v?"#1f6feb":"#fff",fg:st.form.manip===v?"#fff":"#4b5563",border:st.form.manip===v?"#1f6feb":"#d9dde3",go:()=>this.setF("manip",v)});
+    // Drive sirve la misma imagen en varias direcciones y no todas funcionan en todos los
+    // equipos: se prueban en orden hasta que una cargue y se recuerda la que sirvió
+    this._imgOk=this._imgOk||{};
+    const imgEl=(src,fit)=>{
+      if(!src) return null;
+      const id=/^http/.test(String(src))?((String(src).match(/[-\w]{25,}/)||[])[0]||null):null;
+      const alts=id?["https://lh3.googleusercontent.com/d/"+id+"=w1400",
+                     "https://drive.google.com/thumbnail?id="+id+"&sz=w1400",
+                     "https://drive.google.com/uc?export=view&id="+id]:[String(src)];
+      const inicial=(id&&this._imgOk[id])||alts[0];
+      return React.createElement("img",{src:inicial,referrerPolicy:"no-referrer",
+        style:{width:"100%",height:"100%",objectFit:fit},
+        onLoad:e=>{ if(id) this._imgOk[id]=e.target.currentSrc||e.target.src; },
+        onError:e=>{ const t=e.target, i=alts.indexOf(t.getAttribute("src"));
+          if(i>=0&&i+1<alts.length){ if(id) this._imgOk[id]=alts[i+1]; t.src=alts[i+1]; } }});
+    };
+    const fotoSlot=(k,etiqueta,ph)=>({etiqueta,placeholder:ph,vacia:!st.form[k],img:imgEl(st.form[k],"cover"),
+      boton:st.form[k]?"Cambiar foto":"Tomar foto",borrarDisplay:st.form[k]?"block":"none",
+      onChange:e=>this.foto(k,e.target.files&&e.target.files[0]), borrar:()=>this.setF(k,null)});
+
+    const pdfF=String(st.form.archivoPdf||""), pdfLocal=pdfF.indexOf("data:")===0;
+    const pdfVer=s=>String(s||"").replace(/\/preview(\?.*)?$/,"/view");
+    const dv=st.form.vencimiento?this.dias(st.form.vencimiento):null;
+    const csvText=()=>["DNI,NOMBRE,AREA,MANIPULADOR,CELULAR,EMISION,VENCIMIENTO,ESTADO",
+      ...reporteFiltradas.map(r=>[r.dni,'"'+r.nombre+'"',r.area,r.manipulador,r.celular,r.emision,r.vencimiento,r.estadoTexto].join(","))].join("\n");
+    const syncColor = st.sync==="ok"?"#22c55e":st.sync==="error"?"#dc2626":st.sync==="pendiente"?"#f59e0b":"#8b93a1";
+    const accesos = st.accesos||[];
+    // la app queda cerrada por defecto: solo entra el administrador o un código activo
+    const paseOk = st.admin || !!st.sesion;
+    const miAcceso = st.sesion;
+    const usuarioActual = (()=>{
+      const n = miAcceso ? miAcceso.nombre : (st.admin?"Administrador":"Sin identificar");
+      const p = n.trim().split(/\s+/).filter(Boolean);
+      return {nombre:n, rol: st.admin?"ADMINISTRADOR":"USUARIO ASIGNADO",
+        ini: (p.length>1?p[0][0]+p[1][0]:(p[0]||"?").slice(0,2)).toUpperCase()};
+    })();
+    const accesosList = accesos.map(a=>{
+      const cel=String(a.celular||"").replace(/\D/g,"");
+      const txt=this.textoAcceso(a);
+      return {codigo:a.clave, nombre:a.nombre,
+        meta:a.correo+(cel?" · "+cel:""),
+        alertaDisplay:"none", alertaTexto:"",
+        liberarDisplay:"flex", liberar:()=>this.nuevaClaveDe(a.correo),
+        estadoTexto:a.pend?"Sin sincronizar":a.activo?"Activo":"Bloqueado",
+        estadoColor:a.pend?"#b45309":a.activo?"#16a34a":"#dc2626", estadoBg:a.pend?"#fef3c7":a.activo?"#dcfce7":"#fee2e2",
+        pendDisplay:a.pend?"flex":"none", reintentar:()=>this.reintentar(a.correo),
+        altTexto:a.activo?"Bloquear":"Activar", altColor:a.activo?"#b45309":"#16a34a",
+        altBorde:a.activo?"#fde68a":"#bbf7d0",
+        alternar:()=>this.alternarAcceso(a.correo),
+        eliminar:()=>this.eliminarAcceso(a.correo),
+        copiar:()=>{ navigator.clipboard&&navigator.clipboard.writeText(txt);
+          this.setState({accOk:true,accMsg:"Datos de acceso copiados · "+a.nombre}); },
+        waLink:(cel?"https://wa.me/51"+cel:"https://wa.me/")+"?text="+encodeURIComponent(txt)};
+    });
+
+    return {
+      shellDir: movil?"column":"row",
+      sidebarDisplay: movil?"none":"flex",
+      tabbarDisplay: movil?"flex":"none",
+      esMovil: movil, esEscritorio: !movil,
+      verTabla: tabla, verFichas: !tabla,
+      gridFichas: st.w<620?"1fr":"1fr 1fr",
+      mainPadBottom: movil?"72px":"0",
+      headerPad: movil?"13px 15px":"18px 26px",
+      bodyPad: movil?"14px 14px 30px":"22px 26px 50px",
+      reportePad: movil?"16px":"26px",
+      gap: movil?"12px":"16px",
+      h1Size: movil?"16px":"19px",
+      subDisplay: movil?"none":"block",
+      gridKpi: movil?"1fr 1fr":"repeat(auto-fit,minmax(190px,1fr))",
+      gridMain: tabla?"1.55fr 1fr":"1fr",
+      gridLateral: tabla?"1fr":(st.w>=760?"1fr 1fr":"1fr"),
+      gridForm: movil?"1fr":"1.35fr .85fr",
+      gridCampos: movil?"1fr":"1fr 1fr",
+      gridReporte: movil?"1.6fr 1.1fr 0 0 .8fr .9fr":"1.5fr 1.1fr .6fr .8fr .8fr .9fr",
+      ctaRegistro: movil?"+ Carnet":"+ Registrar carnet",
+
+      navItems:nav.map(([id,label,corto,icono,badge])=>({label,corto,icono,badge,go:go(id),
+        bg:st.view===id?"#1f6feb":"transparent",fg:st.view===id?"#fff":"#aeb6c2",
+        badgeColor:st.view===id?"#cfe0ff":"#6b7280", tabFg:st.view===id?"#1f6feb":"#9ca3af"})),
+      viewTitle:titles[st.view][0], viewSub:titles[st.view][1],
+      hoyLargo:hoy.getDate()+" de "+MESES_L[hoy.getMonth()]+" "+hoy.getFullYear(),
+      isPanel:st.view==="panel", isLista:st.view==="lista", isRegistro:st.view==="registro", isReporte:st.view==="reporte", isConfig:st.view==="config"&&st.admin,
+      isAccesos:st.view==="accesos"&&st.admin,
+      accesosList, accesosVacios:accesos.length===0,
+      hayIntrusos:false, avisoIntrusos:"",
+      appUrlInput:st.appUrlInput, onAppUrl:e=>this.setState({appUrlInput:e.target.value.trim()}),
+      guardarAppUrl:()=>this.guardarAppUrl(),
+      accResumen:accesos.filter(a=>a.activo).length+" activos · "+accesos.filter(a=>!a.activo).length+" bloqueados",
+      nuevoNombre:st.nuevoNombre, onNuevoNombre:e=>this.setState({nuevoNombre:e.target.value,accMsg:""}),
+      nuevoCel:st.nuevoCel, onNuevoCel:e=>this.setState({nuevoCel:e.target.value}),
+      crearAcceso:()=>this.crearAcceso(),
+      accMsg:st.accMsg, accMsgColor:st.accOk?"#8ab4ff":"#fca5a5",
+      sinHojaDisplay: st.url?"none":"block",
+      accDiag:st.accDiag, accDiagDisplay:(st.url&&st.accDiag)?"block":"none",
+      sesionActiva:paseOk,
+      scriptViejoDisplay:(st.scriptViejo&&st.admin)?"block":"none",
+      scriptViejoTitulo:st.verHoja?("Tu hoja tiene el Apps Script v"+st.verHoja+" (se necesita v"+VER_MIN+"):"):"La hoja tiene el Apps Script antiguo:",
+      scriptViejoTexto:st.verHoja?"las fotos no se guardarán en Drive ni se verán en otros equipos hasta que actualices. Ve a «Sheets y alertas» › Copiar código, pégalo en Extensiones › Apps Script reemplazando todo, guarda y publica una versión NUEVA.":"lo que registres se guardará solo en este equipo. Ve a «Sheets y alertas» › Copiar código, pégalo en Extensiones › Apps Script de tu hoja reemplazando todo, guarda y publica una versión NUEVA.",
+      mostrarPuerta:!paseOk||!!st.verPuerta,
+      previsualizarPuerta:()=>this.setState({verPuerta:true,puertaMsg:"Vista previa — así la ve quien no está en la lista.",puertaOk:true}),
+      puertaTitulo:"Acceso restringido",
+      puertaSub:"Ingresa con el correo y la contraseña de 6 números que te entregó el administrador.",
+      correoInput:st.correoInput, onCorreo:e=>this.setState({correoInput:e.target.value.trim(),puertaMsg:""}),
+      entrarTexto:st.entrando?"Verificando…":"Entrar",
+      nuevoCorreo:st.nuevoCorreo, onNuevoCorreo:e=>this.setState({nuevoCorreo:e.target.value.trim()}),
+      nuevaClave:st.nuevaClave, onNuevaClave:e=>this.setState({nuevaClave:e.target.value.replace(/\D/g,"").slice(0,6)}),
+      puertaUrlDisplay:st.url?"none":"block",
+      puertaUrl:st.puertaUrl, onPuertaUrl:e=>this.setState({puertaUrl:e.target.value.trim()}),
+      paseInput:st.paseInput, onPase:e=>this.setState({paseInput:e.target.value.replace(/\D/g,"").slice(0,6),puertaMsg:""}),
+      entrar:()=>this.entrar(), entrarAdmin:()=>this.entrarAdmin(),
+      adminBtnDisplay:st.adminAbierto?"none":"block", adminBoxDisplay:st.adminAbierto?"flex":"none",
+      adminClave:st.adminClave||"", onAdminClave:e=>this.setState({adminClave:e.target.value,puertaMsg:""}),
+      onAdminKey:e=>{ if(e.key==="Enter") this.confirmarAdmin(); },
+      confirmarAdmin:()=>this.confirmarAdmin(), cancelarAdmin:()=>this.setState({adminAbierto:false,adminClave:"",puertaMsg:""}),
+      cerrarPuerta:()=>this.setState({verPuerta:false,puertaMsg:""}),
+      cerrarPuertaDisplay:st.verPuerta?"block":"none",
+      puertaMsg:st.puertaMsg, puertaMsgColor:st.puertaOk?"#8ab4ff":"#fca5a5",
+      footerPad: movil?"14px 15px 16px":"15px 26px",
+      footerDir: movil?"column":"row",
+      footerAlign: movil?"flex-start":"center",
+      tienda:st.tienda, tiendaInput:st.tiendaInput,
+      onTienda:e=>this.setState({tiendaInput:e.target.value}),
+      guardarTienda:()=>this.guardarTienda(),
+      tocarLogo:()=>this.tocarLogo(), esAdmin:st.admin, salirAdmin:()=>this.salirAdmin(),
+      salirApp:()=>this.salirApp(),
+      adminChip: st.admin?"flex":"none",
+      bienvenida:st.bienvenida, bienvenidaDisplay:st.bienvenida?"block":"none",
+      usuarioNombre: usuarioActual.nombre, usuarioRol: usuarioActual.rol, usuarioIni: usuarioActual.ini,
+      marcaDisplay: movil?"flex":"none",
+      verFoto:st.verFoto, modalDisplay:st.verFoto?"flex":"none",
+      cerrarFoto:()=>this.setState({verFoto:null}),
+      fotoNombre:st.verFoto?st.verFoto.nombre:"",
+      fotoCompartir:st.verFoto?st.verFoto.compartir:undefined,
+      fotoWaLink:st.verFoto?st.verFoto.waLink:"#",
+      fotoRegistrar:st.verFoto?st.verFoto.registrar:undefined,
+      compartirDisplay:(st.verFoto&&st.verFoto.tieneFotos)?"inline-flex":"none",
+      registrarDisplay:(st.verFoto&&!st.verFoto.tieneFotos&&!st.verFoto.cargando)?"inline-flex":"none",
+      fotoSub: st.verFoto&&st.verFoto.cargando?"Trayendo las fotos de la hoja…"
+        : st.verFoto&&!st.verFoto.tieneFotos?"Este carnet aún no tiene fotos registradas"
+        : "Carnet de sanidad — frente y reverso",
+      fotoVacio:!!(st.verFoto&&!st.verFoto.tieneFotos&&!st.verFoto.cargando),
+      fotoCargando:!!(st.verFoto&&st.verFoto.cargando),
+      fotoPanes:st.verFoto?[
+        {etiqueta:"FRENTE",img:imgEl(st.verFoto.frente,"contain"),vacia:!st.verFoto.frente,texto:st.verFoto.cargando?"Cargando…":"Sin foto registrada"},
+        {etiqueta:"REVERSO",img:imgEl(st.verFoto.reverso,"contain"),vacia:!st.verFoto.reverso,texto:st.verFoto.cargando?"Cargando…":"Sin foto registrada"}
+      ]:[],
+      fotoGrid: movil?"1fr":"1fr 1fr",
+      pdfModalDisplay:(st.verFoto&&st.verFoto.pdf)?"block":"none",
+      pdfModalSrc:st.verFoto&&st.verFoto.pdf?this.pdfVista(st.verFoto.pdf):"about:blank",
+      pdfModalLink:st.verFoto&&st.verFoto.pdf?(/^http/.test(String(st.verFoto.pdf))?pdfVer(st.verFoto.pdf):this.pdfVista(st.verFoto.pdf)):"#",
+      pdfIconBg:pdfF?"#fee2e2":"#e8ebef", pdfIconFg:pdfF?"#b91c1c":"#8b8f98",
+      pdfFormTitulo:!pdfF?"Sin archivo PDF":pdfLocal?(this._pdfNombre||"Archivo PDF"):"PDF guardado en Drive",
+      pdfFormTexto:!pdfF?"Puedes subir frente y reverso juntos en un solo PDF (máx. 15 MB)":pdfLocal?((this._pdfTam?(this._pdfTam/1048576).toFixed(1)+" MB · ":"")+"se sube a Drive al guardar"):"Se ve en Lista, Panel y Eliminados con el botón ▣",
+      pdfFormLink:!pdfF?"#":pdfLocal?this.pdfVista(pdfF):pdfVer(pdfF),
+      pdfFormVerDisplay:pdfF?"flex":"none",
+      pdfBoton:pdfF?"Cambiar archivo PDF":"Cargar archivo PDF",
+      onPdf:e=>{ const t=e.target; this.foto("archivoPdf",t.files&&t.files[0]); try{ t.value=""; }catch(_){} },
+      borrarPdf:()=>this.setF("archivoPdf",null),
+      goRegistro:()=>this.setState({view:"registro",modo:"nuevo",msg:"",form:{...VACIO}}),
+      goLista:go("lista"), goConfig:go("config"), noConectada:!st.url,
+
+      kpis:[
+        {label:"VENCIDOS",value:vencidos,color:"#dc2626",hint:"No pueden operar",go:go("lista",{fEstado:"vencido"})},
+        {label:"POR VENCER 15D",value:criticos,color:"#ea580c",hint:"Citar a renovación ya",go:go("lista",{fEstado:"alerta"})},
+        {label:"AVISO 30D",value:avisos,color:"#b45309",hint:"Programar cita",go:go("lista",{fEstado:"alerta"})},
+        {label:"VIGENTES",value:vigentes,color:"#16a34a",hint:sinFecha?sinFecha+" sin fecha registrada":"Sin acción",go:go("lista",{fEstado:"vigente"})}
+      ],
+      urgentes:rows.filter(r=>r.e.k!=="vigente"&&r.e.k!=="sinfecha").slice(0,7),
+      sinRegistros:rows.length===0, sinUrgentes:rows.length>0&&!rows.some(r=>r.e.k!=="vigente"&&r.e.k!=="sinfecha"),
+      manipOk, manipTotal:manipRows.length, manipPct:(manipOk/Math.max(1,manipRows.length)*100)+"%",
+      manipAlerta:manipVenc>0?manipVenc+" manipulador(es) con carnet vencido — riesgo en inspección":"Ningún manipulador con carnet vencido",
+      porArea,
+
+      q:st.q, onSearch:e=>this.setState({q:e.target.value}),
+      fArea:st.fArea, onArea:e=>this.setState({fArea:e.target.value}),
+      areasOpts:["Todas las áreas",...AREAS], areas:AREAS,
+      estadoTabs:[tab("todos","Todos"),tab("vencido","Vencidos"),tab("alerta","Por vencer"),tab("vigente","Vigentes"),...(st.admin?[tab("eliminados","Eliminados")]:[])],
+      filtradas, conteoFiltrado: st.fEstado==="eliminados"
+        ?(borradosRows.length?"Mostrando "+filtradas.length+" registro(s) eliminado(s) · toca Habilitar para devolverlo a la lista":"La papelera está vacía: aquí se archivan los registros que elimines.")
+        :"Mostrando "+filtradas.length+" de "+rows.length+" colaboradores",
+
+      modoTabs:[modoTab("nuevo","Nuevo ingreso"),modoTab("renovacion","Renovación")],
+      manipTabs:[manipTab(true,"Sí"),manipTab(false,"No")],
+      esRenovacion:st.modo==="renovacion",
+      buscaCol:st.buscaCol, onBuscaCol:e=>this.setState({buscaCol:e.target.value}),
+      colSug, hayCol:colSug.length>0,
+      sinColDisplay:(bq.length>=2&&colSug.length===0)?"block":"none",
+      colElegidoDisplay:(!bq&&st.form.dni&&st.form.nombre)?"block":"none",
+      colElegido:"Editando: "+st.form.nombre,
+      form:st.form,
+      onField:Object.fromEntries(["dni","nombre","celular","area","emision","vencimiento"].map(k=>[k,e=>this.setF(k,e.target.value)])),
+      fotos:[fotoSlot("fotoFrente","FRENTE DEL CARNET","Foto del frente"),fotoSlot("fotoReverso","REVERSO / ANVERSO","Foto del reverso")],
+      vencBg: st.form.vencimiento?"#f0f7ff":"#fff",
+      vencHintColor: st.form.vencimiento?(dv<0?"#dc2626":"#1f6feb"):"#8b8f98",
+      guardarBottom: movil?"64px":"0",
+      guardarFlex: movil?"1":"none",
+      vigenciaHint: !st.form.emision
+        ? (st.form.manip?"Ingresa la emisión: se sumarán 6 meses (manipulador)":"Ingresa la emisión: se sumarán 12 meses")
+        : (st.form.manip?"Calculado: emisión + 6 meses (manipulador)":"Calculado: emisión + 12 meses")+(dv!==null&&dv>=0?" · vigente "+dv+" días":(dv!==null?" · ya vencido":"")),
+      textoGuardar:st.modo==="nuevo"?"Guardar carnet":"Registrar renovación",
+      mensajeGuardado:st.msg, msgColor:st.msgOk?"#16a34a":"#dc2626",
+      guardar:()=>this.guardar(),
+      limpiar:()=>this.setState({msg:"",form:{...VACIO}}),
+      pasosGuardado:st.url
+        ?["Se escribe la fila en tu hoja de Google Sheets","El estado y los días se calculan con fórmula","Laptop y celular ven el mismo registro al sincronizar"]
+        :["Se guarda en este dispositivo","Conecta la hoja en «Sheets y alertas» para verlo en laptop y celular","Mientras tanto puedes exportar el CSV desde Reporte"],
+      rutaDisplay: st.admin?"block":"none",
+      rutaHoja: st.url?"Google Sheets «REGISTRO CARNET DE SANIDAD» › pestaña «Registros»":"Sin hoja conectada: se guarda solo en este dispositivo — conecta el Web App en «Sheets y alertas».",
+
+      total:reporteFiltradas.length, resumenReporte:vencidos+" vencidos · "+(criticos+avisos)+" por vencer · "+vigentes+" vigentes",
+      reporteRows:reporteFiltradas, imprimir:()=>window.print(), textoCSV:st.csv,
+      reporteTabs:[rTab("todos","TODOS"),rTab("vencido","VENCIDOS"),rTab("critico","POR VENCER 15D"),rTab("aviso","AVISO 30D"),rTab("vigente","VIGENTES")],
+      reporteFiltroTexto:"Filtro: "+rLabels[st.rEstado]+" · "+reporteFiltradas.length+" registro(s)",
+      copiarCSV:()=>{navigator.clipboard&&navigator.clipboard.writeText(csvText()); this.setState({csv:"Copiado ✓"}); setTimeout(()=>this.setState({csv:"Copiar CSV"}),1800);},
+      descargarExcel:()=>{
+        const cab=["DNI","NOMBRE","ÁREA","MANIPULADOR","CELULAR","EMISIÓN","VENCIMIENTO","ESTADO"];
+        const filas=reporteFiltradas.map(r=>[r.dni,r.nombre,r.area,r.manipulador,r.celular,r.emision,r.vencimiento,r.estadoTexto]);
+        this.bajarXlsx([cab,...filas],"carnets-sanidad.xlsx","Carnets");
+      },
+      descargarCSV:()=>{const b=new Blob(["\ufeff"+csvText()],{type:"text/csv;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="carnets-sanidad.csv";a.click();},
+
+      urlInput:st.urlInput, onUrl:e=>this.setState({urlInput:e.target.value.trim()}),
+      borrarUrl:()=>this.setState({urlInput:""}), borrarUrlDisplay:st.urlInput?"flex":"none",
+      textoUrl:st.copiaUrl||"Copiar código de conexión",
+      copiarUrl:()=>{ if(!st.url) return; navigator.clipboard&&navigator.clipboard.writeText(st.url);
+        this.setState({copiaUrl:"Código copiado ✓"}); setTimeout(()=>this.setState({copiaUrl:null}),1800); },
+      conectar:()=>{ const u=st.urlInput; try{ localStorage.setItem(URLKEY,u); }catch(e){}
+        this.setState({url:u, sync:u?"pendiente":"local", syncMsg:u?"Conectando…":"Desconectada."}, ()=>{ if(u) this.jalar(); }); },
+      sincronizar:()=>this.jalar(),
+      syncEstado: st.sync==="ok"?(st.admin?"Conectada":"Al día"):st.sync==="error"?"Sin conexión":st.sync==="pendiente"?"Sincronizando":"Solo local",
+      syncColor, syncBorde: st.sync==="ok"?"#bbf7d0":st.sync==="error"?"#fecaca":"#e5e7eb",
+      syncTexto: st.admin?(st.url?"REGISTRO CARNET DE SANIDAD":"Aún no conectada"):(st.url?"Datos sincronizados":"Datos solo en este equipo"),
+      syncTitulo: st.admin?"Google Sheets":"Sincronización",
+      syncDetalle: st.syncMsg,
+
+      pasosSetup:[
+        {n:"1",titulo:"Abre tu hoja",detalle:"En Drive abre «REGISTRO CARNET DE SANIDAD». No necesitas crear columnas: el script arma la pestaña «Registros» con la cabecera correcta la primera vez."},
+        {n:"2",titulo:"Pega el código",detalle:"Menú Extensiones → Apps Script. Borra lo que haya, pega el código de abajo y cambia los correos de la línea DESTINOS. Guarda. Si ya lo habías pegado antes, reemplázalo por esta versión: lee las columnas por su nombre, así funciona aunque tu hoja tenga otro orden."},
+        {n:"3",titulo:"Publica el Web App (primera vez)",detalle:"Botón azul Implementar → Nueva implementación → engranaje → Aplicación web. Ejecutar como: yo. Quién tiene acceso: cualquier persona. Implementar → autoriza → copia la URL que termina en /exec y pégala arriba."},
+        {n:"3b",titulo:"Publicar una NUEVA VERSIÓN (cada vez que cambies el código)",detalle:"Guarda el código (ícono de disquete). Luego Implementar → Gestionar implementaciones → en tu implementación toca el lápiz ✏️ arriba a la derecha → en «Versión» elige Nueva versión → Implementar. La URL NO cambia, no tienes que volver a pegarla. Si en vez de eso creas otra implementación nueva, te dará una URL distinta y tendrás que actualizarla en la app."},
+        {n:"4",titulo:"Programa el correo diario",detalle:"En Apps Script, ícono de reloj (Activadores) → Añadir activador → función alertaDiaria → temporizador diario → 7 a 8 a.m. Autoriza el permiso de correo."},
+        {n:"5",titulo:"Conecta el celular",detalle:"Abre la app en el teléfono, entra a esta pantalla y pega la misma URL. Desde ahí ambos equipos leen y escriben la misma hoja."}
+      ],
+      appsScript:APPS_SCRIPT, textoScript:st.script, codigoRef:(this._codigoRef=this._codigoRef||React.createRef()),
+      copiarScript:()=>this.copiarTexto(APPS_SCRIPT),
+      columnas:["A · DNI","B · NOMBRE DEL COLABORADOR","C · CELULAR (WHATSAPP)","D · ÁREA","E · MANIPULADOR","F · FECHA DE EMISIÓN CARNET","G · FECHA DE VENCIMIENTO CARNET","H · FOTO FRENTE","I · FOTO REVERSO","J · ESTADO","K · DÍAS RESTANTES"],
+      alertas:[
+        {titulo:"Correo diario 7:00 a.m.",detalle:"Solo carnets por vencer en 15 días (y los ya vencidos)",color:"#1f6feb",estado:"Activa"},
+        {titulo:"Aviso a 30 días",detalle:"Se marca AVISO 30D en la app, pero no entra al correo",color:"#b45309",estado:"Solo app"},
+        {titulo:"Notificación al jefe de área",detalle:"Agrega su correo en DESTINOS del script",color:"#7c3aed",estado:"Activa"},
+        {titulo:"WhatsApp al colaborador",detalle:"Botón WhatsApp en cada ficha con el mensaje ya redactado",color:"#16a34a",estado:"Activa"},
+        {titulo:"Vencimiento automático",detalle:"Manipulador: emisión + 6 meses · No manipulador: emisión + 12 meses",color:"#0f766e",estado:"Activa"}
+      ],
+      correoRows:rows.filter(r=>r.e.k==="critico"),
+      correoVencidos:rows.filter(r=>r.e.k==="vencido"),
+      hayVencidosCorreo:vencidos>0, tituloVencidos:"Ya vencidos ("+vencidos+")",
+      sinCorreo:criticos===0&&vencidos===0,
+      asuntoCorreo:"Carnet de Sanidad ("+criticos+") por vencer en 15 días"
+    };
+  }
+}
+</script>
+
+
+</body></html>
